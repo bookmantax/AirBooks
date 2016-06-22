@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.airbooks.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/logo" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Trip"
+        android:id="@+id/main_Menu_Current_Trip_Btn"
+        android:textSize="25dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignStart="@+id/main_Menu_Deductions_Btn"
+        android:layout_alignEnd="@+id/main_Menu_Deductions_Btn"
+        android:layout_margin="2dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Trip History"
+        android:id="@+id/main_Menu_History_Btn"
+        android:textSize="25dp"
+        android:layout_below="@+id/main_Menu_Current_Trip_Btn"
+        android:layout_alignStart="@+id/main_Menu_Deductions_Btn"
+        android:layout_alignEnd="@+id/main_Menu_Deductions_Btn"
+        android:layout_margin="2dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tax Deductions to Date"
+        android:id="@+id/main_Menu_Deductions_Btn"
+        android:textSize="25dp"
+        android:layout_below="@+id/main_Menu_History_Btn"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="2dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Per Diem Search"
+        android:id="@+id/main_Menu_Search_Btn"
+        android:textSize="25dp"
+        android:layout_below="@+id/main_Menu_Deductions_Btn"
+        android:layout_alignStart="@+id/main_Menu_Deductions_Btn"
+        android:layout_alignEnd="@+id/main_Menu_Deductions_Btn"
+        android:layout_margin="2dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit User Info"
+        android:id="@+id/main_Menu_Edit_Btn"
+        android:textSize="25dp"
+        android:layout_below="@+id/main_Menu_Search_Btn"
+        android:layout_alignStart="@+id/main_Menu_Search_Btn"
+        android:layout_alignEnd="@+id/main_Menu_Search_Btn"
+        android:layout_margin="2dp" />
+
+
+</RelativeLayout>

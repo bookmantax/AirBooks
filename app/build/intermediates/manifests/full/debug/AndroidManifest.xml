@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.airbooks"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="22"
+        android:targetSdkVersion="22" />
+    //permission to access exact location
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Include required permissions for Google Maps API to run. -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.airbooks.SplashScreen"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.airbooks.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.airbooks.MainActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        // New Activity Current Trip
+        <activity
+            android:name="com.airbooks.CurrentTrip"
+            android:label="@string/current_Trip"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.airbooks.CurrentTrip" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        // New Activity Trip History
+        <activity
+            android:name="com.airbooks.ViewTripHistory"
+            android:label="@string/View_Trip_History"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.airbooks.ViewTripHistory" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        // New Activity Tax Deductions To Date
+        <activity
+            android:name="com.airbooks.TaxDeductionsToDate"
+            android:label="@string/Tax_Deductions_To_Date"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.airbooks.TaxDeductionsToDate" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        // New Activity Per Diem Search
+        <activity
+            android:name="com.airbooks.PerDiemSearch"
+            android:label="@string/Per_Diem_Search"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.airbooks.PerDiemSearch" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        // New Activity Edit User Info
+        <activity
+            android:name="com.airbooks.EditUserInfo"
+            android:label="@string/Edit_User_Info"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.airbooks.EditUserInfo" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        // New Activity Add User Info
+        <activity
+            android:name="com.airbooks.AddUserInfo"
+            android:label="@string/Add_User_Info"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.airbooks.AddUserInfo" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        // New Activity Location
+        <activity
+            android:name="com.airbooks.LocationManager"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.airbooks.LocationManager" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        // New Activity Landing Date
+        <activity
+            android:name="com.airbooks.LandingDate"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.airbooks.LandingDate" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        // New Activity DepartingDate
+        <activity
+            android:name="com.airbooks.DepartingDate"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.airbooks.DepartingDate" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        // New Activity AddTrip
+        <activity
+            android:name="com.airbooks.AddNewTrip"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.airbooks.AddNewTrip" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        // New Activity SpeedManager
+        <activity
+            android:name="com.airbooks.SpeedManager"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="com.airbooks.SpeedManager" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!--
+     ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBGuGniN3Ubhj43EpNgmu87HUEEMlMHBL0" />
+
+        <service
+            android:name="com.airbooks.LocationService"
+            android:process=":location_service" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="com.airbooks.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+    </application>
+
+</manifest>

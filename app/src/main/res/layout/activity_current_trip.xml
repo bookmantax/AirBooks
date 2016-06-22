@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Current Trip"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="25dp"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="293dp"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:id="@+id/current_Trip_Location_Btn"
+        android:textSize="25dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignStart="@+id/main_Menu_Deductions_Btn"
+        android:layout_alignEnd="@+id/main_Menu_Deductions_Btn"
+        android:layout_margin="15dp"
+        android:layout_gravity="center_horizontal"
+        android:nestedScrollingEnabled="false" />
+
+    <Button
+        android:layout_width="293dp"
+        android:layout_height="wrap_content"
+        android:text="Add A New Trip"
+        android:id="@+id/current_Trip_Departing_Btn"
+        android:textSize="25dp"
+        android:layout_below="@+id/main_Menu_History_Btn"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="15dp"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:text="Per Diem Tax Deduction"
+        android:id="@+id/current_Trip_Diem_Deduction_Btn"
+        android:textSize="25dp"
+        android:layout_below="@+id/main_Menu_Deductions_Btn"
+        android:layout_alignStart="@+id/main_Menu_Deductions_Btn"
+        android:layout_alignEnd="@+id/main_Menu_Deductions_Btn"
+        android:layout_margin="15dp"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:text="Total Trip Tax Deduction"
+        android:id="@+id/current_Trip_Total_Deduction_Btn"
+        android:textSize="25dp"
+        android:layout_below="@+id/main_Menu_Search_Btn"
+        android:layout_alignStart="@+id/main_Menu_Search_Btn"
+        android:layout_alignEnd="@+id/main_Menu_Search_Btn"
+        android:layout_margin="15dp"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/logo" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Trip"
+        android:id="@+id/main_Menu_Current_Trip_Btn"
+        android:textSize="25dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignStart="@+id/main_Menu_Deductions_Btn"
+        android:layout_alignEnd="@+id/main_Menu_Deductions_Btn"
+        android:layout_margin="2dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Trip History"
+        android:id="@+id/main_Menu_History_Btn"
+        android:textSize="25dp"
+        android:layout_below="@+id/main_Menu_Current_Trip_Btn"
+        android:layout_alignStart="@+id/main_Menu_Deductions_Btn"
+        android:layout_alignEnd="@+id/main_Menu_Deductions_Btn"
+        android:layout_margin="2dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tax Deductions to Date"
+        android:id="@+id/main_Menu_Deductions_Btn"
+        android:textSize="25dp"
+        android:layout_below="@+id/main_Menu_History_Btn"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="2dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Per Diem Search"
+        android:id="@+id/main_Menu_Search_Btn"
+        android:textSize="25dp"
+        android:layout_below="@+id/main_Menu_Deductions_Btn"
+        android:layout_alignStart="@+id/main_Menu_Deductions_Btn"
+        android:layout_alignEnd="@+id/main_Menu_Deductions_Btn"
+        android:layout_margin="2dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Speed"
+        android:id="@+id/main_Menu_Speed_Btn"
+        android:textSize="25dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_below="@+id/main_Menu_Search_Btn"
+        android:layout_alignStart="@+id/main_Menu_Search_Btn"
+        android:layout_alignEnd="@+id/main_Menu_Search_Btn" />
+
+</RelativeLayout>

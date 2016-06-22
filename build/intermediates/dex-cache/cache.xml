@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="cc178928721f3222b3b06bdfbd9497378ccb9792">
+        <dex dex="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-9.0.0_2f438bd4553c196a4ac03d1afac35380c64da7e2.jar" />
+    </item>
+    <item
+        jar="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4431efe5d0f67fab36a698dde725946b33a6bf4a">
+        <dex dex="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-appindexing-9.0.0_944b54ed09c8f84745d6204df6205344e7a564ba.jar" />
+    </item>
+    <item
+        jar="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
+        <dex dex="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.3.0_353ff21a510ba254e0e1e4e2771be183f0655d47.jar" />
+    </item>
+    <item
+        jar="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="42df48c7305b08b14fa0e84561091b0c24d70d26">
+        <dex dex="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/pre-dexed/debug/com.google.firebase-firebase-common-9.0.0_88cfca9cd4f7a0eddb1ea5326dab588a37888a46.jar" />
+    </item>
+    <item
+        jar="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
+        <dex dex="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.3.0_0ac49999423fc65f613eb54bdaf37eca515f27fc.jar" />
+    </item>
+    <item
+        jar="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1941832901fc4e7a93300b53762e9f65d7650b99">
+        <dex dex="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-9.0.0_74f51dd9f944e35f9204152c5d7412b87b6e8fd1.jar" />
+    </item>
+    <item
+        jar="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6f65c144283b31b4b9a70e6e7aa4c4a1c897d4b8">
+        <dex dex="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-9.0.0_cbd24fdf85f9236e26f05c10dba203c5978948aa.jar" />
+    </item>
+    <item
+        jar="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.3.0_5244e67608ce672b2dd987d35f01f53b3378259d.jar" />
+    </item>
+    <item
+        jar="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a819aae4f0c711e50b4fd633922a3c1a176cb51e">
+        <dex dex="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-9.0.0_3c63b750c05ce61aec6a450fbfb2c869dc5b2e57.jar" />
+    </item>
+    <item
+        jar="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="59cca9b91688dc2467754d36793b3d23bebd21a9">
+        <dex dex="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-location-9.0.0_1b2ce69225c69fc9c2fa0fccfc7184fc1ec51524.jar" />
+    </item>
+    <item
+        jar="/home/unlimited_power/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/pre-dexed/debug/support-annotations-23.3.0_9b1d0eaa83b2c73c50816d1879b08197f076ec40.jar" />
+    </item>
+    <item
+        jar="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.3.0/jars/libs/internal_impl-23.3.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/pre-dexed/debug/internal_impl-23.3.0_46c4c4b810be855d679a114e390081bdccc7bd24.jar" />
+    </item>
+    <item
+        jar="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.3.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.3.0_093ba3cb95e21980e9b58db4f902ffe1882628ae.jar" />
+    </item>
+
+</items>

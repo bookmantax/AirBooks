@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/res/merged/debug/raw/airports.csv",
+        "source": "/home/unlimited_power/workspace/AirBooks_Development/app/src/main/res/raw/airports.csv"
+    },
+    {
+        "merged": "/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/res/merged/debug/raw/int_airports.csv",
+        "source": "/home/unlimited_power/workspace/AirBooks_Development/app/src/main/res/raw/int_airports.csv"
+    },
+    {
+        "merged": "/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/res/merged/debug/raw/per_diem.csv",
+        "source": "/home/unlimited_power/workspace/AirBooks_Development/app/src/main/res/raw/per_diem.csv"
+    }
+]
