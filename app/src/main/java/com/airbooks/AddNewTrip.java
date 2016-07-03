@@ -96,7 +96,7 @@ public class AddNewTrip extends AppCompatActivity {
         });
     }
 
-    // Save a Book Listener
+    // Save Listener
     public void OnClickButtonListenerAdd() {
         button_sbm = (Button) findViewById(R.id.addTripButton);
         button_sbm.setOnClickListener(

@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/res/merged/debug/mipmap-mdpi-v4/ic_launcher.png",
-        "source": "/home/unlimited_power/workspace/AirBooks_Development/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Rodrigo\\Desktop\\AirBooks_Development\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Rodrigo\\Desktop\\AirBooks_Development\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\home\\unlimited_power\\workspace\\AirBooks_Development\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
+        "source": "C:\\home\\unlimited_power\\workspace\\AirBooks_Development\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     }
 ]

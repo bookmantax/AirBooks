@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class SplashScreen extends Activity {
 
     DatabaseHelper myDB;
+    AlarmHandler alarmHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +69,14 @@ public class SplashScreen extends Activity {
         }
 
         if (checkAirports == true){
-//            myDB.fillAirportsTable(ctx, R.raw.airports);
-            myDB.fillAirportsTable(ctx, R.raw.int_airports);
+            myDB.fillAirportsTable(ctx, R.raw.airports);
+//            myDB.fillAirportsTable(ctx, R.raw.int_airports);
         } else {
             // ignore
         }
+
+//        // Set Alarm for 11:59 pm to check location
+//        alarmHandler.setScheduledAlarm();
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.airbooks;
 import android.app.Service;
 import android.content.Intent;
 import android.location.Address;
+import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
@@ -80,33 +81,47 @@ public class LocationService extends Service{
         return null;
     }
 /**
- * TODO: Create If for either one GPS or NET (GET_BEST_PROVIDER)
  * TODO: https://developer.android.com/reference/android/location/LocationManager.html#getBestProvider%28android.location.Criteria,%20boolean%29
  */
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId)
-    {
+    public int onStartCommand(Intent intent, int flags, int startId) {
+
+        /**
+         * Returns the name of the provider that best meets the given criteria.
+         * Only providers that are permitted to be accessed by the calling activity will be returned. If several providers meet the criteria, the one with the best accuracy is returned.
+         * If no provider meets the criteria, the criteria are loosened in the following sequence:
+         * power requirement
+         * accuracy
+         * bearing
+         * speed
+         * altitude
+         */
+        mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        // Sets the criteria for a fine and low power provider
+        Criteria criteria = new Criteria();
+        criteria.setAccuracy(Criteria.ACCURACY_FINE);
+        criteria.setPowerRequirement(Criteria.POWER_LOW);
+        // Gets the best matched provider, and only if it's on
+        String bestProvider = mLocationManager.getBestProvider(criteria, true);
+
+
         Log.e(TAG, "onStartCommand");
         super.onStartCommand(intent, flags, startId);
         try {
             Log.i(TAG, "I'm getting your location");
-            mLocationManager.requestLocationUpdates(
-                    LocationManager.NETWORK_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE,
-                    mLocationListeners[1]);
-            Location l = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            mLocationManager.requestLocationUpdates(bestProvider, LOCATION_INTERVAL, LOCATION_DISTANCE, mLocationListeners[1]);
+            Location l = mLocationManager.getLastKnownLocation(bestProvider);
             latitude = l.getLatitude();
-//Toast.makeText(LocationService.this, "NET = " + latitude, Toast.LENGTH_LONG).show();
             longitude = l.getLongitude();
-//Toast.makeText(LocationService.this, "NET = " + longitude, Toast.LENGTH_LONG).show();
             country = country(latitude, longitude);
             state = state(latitude, longitude);
             city = city(latitude, longitude);
             setPerDiem();
-            if(l != null) {
+            if (l != null) {
                 Log.i(TAG, "" + l.getLatitude() + " - " + l.getLongitude());
                 Date sDate = Calendar.getInstance().getTime();
                 boolean isInserted = db.insertTrip(
-                        ("NET " + country + " - " + state + " - " + city),
+                        (country + " - " + state + " - " + city),
                         sDate.toString(), sDate.toString(),
                         String.valueOf(finalPerDiem));
             }
@@ -115,38 +130,11 @@ public class LocationService extends Service{
         } catch (IllegalArgumentException ex) {
             Log.d(TAG, "network provider does not exist, " + ex.getMessage());
         }
-        try {
-            Log.i(TAG, "I'm getting your location");
-//            GPSManager gps = new GPSManager(this);
-//            gps.canGetLocation(); // Check GPS active
-            mLocationManager.requestLocationUpdates(
-                    LocationManager.GPS_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE,
-                    mLocationListeners[0]);
-            Location l = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            latitude = l.getLatitude();
-//Toast.makeText(LocationService.this, "GPS = " + latitude, Toast.LENGTH_LONG).show();
-            longitude = l.getLongitude();
-//Toast.makeText(LocationService.this, "GPS = " + longitude, Toast.LENGTH_LONG).show();
-            country = country(latitude, longitude);
-            state = state(latitude, longitude);
-            city = city(latitude, longitude);
-            perDiem = 0; // To get PerDiem value again.
-            setPerDiem();
-            if(l != null) {
-                Log.i(TAG, "" + l.getLatitude() + " - " + l.getLongitude());
-                Date sDate = Calendar.getInstance().getTime();
-                boolean isInserted = db.insertTrip(
-                        ("GPS " + country + " - " + state + " - " + city),
-                        sDate.toString(), sDate.toString(),
-                        String.valueOf(finalPerDiem));
-            }
-        } catch (java.lang.SecurityException ex) {
-            Log.i(TAG, "fail to request location update, ignore", ex);
-        } catch (IllegalArgumentException ex) {
-            Log.d(TAG, "gps provider does not exist " + ex.getMessage());
-        }
+
         return START_STICKY;
     }
+
+
 
     /**
      * Set Per Diem Value Based in Location
@@ -155,15 +143,12 @@ public class LocationService extends Service{
     public int setPerDiem() {
         if (perDiem == 0) {
             int cityPerDiem = getPerDiemCity();
-//Toast.makeText(LocationService.this, "City perDIem = " + cityPerDiem, Toast.LENGTH_LONG).show();
             finalPerDiem = cityPerDiem;
         } else if (finalPerDiem == 0) {
             int statePerDiem = getPerDiemState();
-//Toast.makeText(LocationService.this, "State perDIem = " + statePerDiem, Toast.LENGTH_LONG).show();
             finalPerDiem = statePerDiem;
         } else if (finalPerDiem == 0){
             int countryPerDiem = getPerDiemCountry();
-//Toast.makeText(LocationService.this, "Country perDIem = " + countryPerDiem, Toast.LENGTH_LONG).show();
             finalPerDiem = countryPerDiem;
         }
         return finalPerDiem;
@@ -223,41 +208,6 @@ public class LocationService extends Service{
         }
     }
 
-    public Double setLatitude() {
-        if (latitude == null) {
-            Location gpsLoc = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            if (gpsLoc != null) {
-                latitude = gpsLoc.getLatitude();
-                Toast.makeText(LocationService.this, "GPS = " + latitude, Toast.LENGTH_LONG).show();
-            } else {
-                Location netLoc = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                if (netLoc != null) {
-                    latitude = netLoc.getLatitude();
-                    Toast.makeText(LocationService.this, "NET = " + latitude, Toast.LENGTH_LONG).show();
-                }
-//                Toast.makeText(LocationService.this, "setLatitude FAIL @ LocationService.java", Toast.LENGTH_LONG).show();
-            }
-        }
-        return 0.0;
-    }
-    public Double setLongitude() {
-        if (longitude == null) {
-            Location gpsLoc = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            if (gpsLoc != null) {
-                longitude = gpsLoc.getLatitude();
-                Toast.makeText(LocationService.this, "GPS = " + longitude, Toast.LENGTH_LONG).show();
-            } else {
-                Location netLoc = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-                if (netLoc != null) {
-                   longitude = netLoc.getLatitude();
-                    Toast.makeText(LocationService.this, "NET = " + longitude, Toast.LENGTH_LONG).show();
-                }
-//                Toast.makeText(LocationService.this, "setLongitude FAIL @ LocationService.java", Toast.LENGTH_LONG).show();
-            }
-        }
-        return 0.0;
-    }
-
     /*
      * Get location details
      */
@@ -270,7 +220,6 @@ public class LocationService extends Service{
             e.printStackTrace();
         }
         country = addresses.get(0).getCountryName();
-// Toast.makeText(LocationService.this, "You are @ " + country, Toast.LENGTH_LONG).show();
         return country;
     }
 
@@ -283,7 +232,6 @@ public class LocationService extends Service{
             e.printStackTrace();
         }
         state = addresses.get(0).getAdminArea();
-// Toast.makeText(LocationService.this, "You are @ " + state, Toast.LENGTH_LONG).show();
         return state;
     }
 
@@ -297,7 +245,6 @@ public class LocationService extends Service{
             e.printStackTrace();
         }
         city = addresses.get(0).getLocality();
-// Toast.makeText(LocationService.this, "You are @ " + city, Toast.LENGTH_LONG).show();
             return city;
     }
-}
+ }

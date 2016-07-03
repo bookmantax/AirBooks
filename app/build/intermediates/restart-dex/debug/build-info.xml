@@ -4,43 +4,40 @@
     api-level="23"
     density="xxhdpi"
     format="7"
-    timestamp="10977433284958"
+    timestamp="4822761972450"
     token="3443914201527092464" >
 
     <task
         name="javac"
-        duration="227" />
+        duration="197" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="35" />
     <task
         name="verifier"
-        duration="0" />
+        duration="3" />
 
     <artifact
-        location="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/res/resources-debug.ap_"
-        type="RESOURCES" />
+        location="C:\Users\Rodrigo\Desktop\AirBooks_Development\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
+        type="DEX" />
 
-    <build timestamp="10374097117254" >
+    <build timestamp="4640773021604" >
         <artifact
-            location="/home/unlimited_power/workspace/AirBooks_Development/app/build/outputs/apk/app-debug.apk"
+            location="C:\Users\Rodrigo\Desktop\AirBooks_Development\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="10757885962240" >
+    <build timestamp="4822761972450" >
         <artifact
-            location="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
-            type="DEX" />
-        <artifact
-            location="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex"
+            location="C:\Users\Rodrigo\Desktop\AirBooks_Development\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
             type="DEX" />
     </build>
-    <build timestamp="10977433284958" >
+    <build timestamp="16504732933951" >
         <artifact
-            location="/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/res/resources-debug.ap_"
-            type="RESOURCES" />
+            location="C:\home\unlimited_power\workspace\AirBooks_Development\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
+            type="DEX" />
     </build>
 
 </instant-run>

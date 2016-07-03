@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         OnClickButtonListenerTaxDeductionsToDate();
         OnClickButtonListenerPerDiemSearch();
         OnClickButtonListenerSpeedManager();
+        OnClickButtonListenerAlarmHandler();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -135,6 +136,19 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    // Alarm Listener
+    public void OnClickButtonListenerAlarmHandler() {
+        button_sbm = (Button) findViewById(R.id.main_alarm_button);
+        button_sbm.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent("com.airbooks.AlarmHandler");
+                        startActivity(intent);
+                    }
+                }
+        );
+    }
 
     @Override
     public void onStart() {

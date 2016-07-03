@@ -1,10 +1,18 @@
 [
     {
-        "merged": "/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_light.xml",
-        "source": "/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/color-v11/abc_background_cache_hint_selector_material_light.xml"
+        "merged": "C:\\home\\unlimited_power\\workspace\\AirBooks_Development\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\home\\unlimited_power\\workspace\\AirBooks_Development\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
-        "merged": "/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/res/merged/debug/color-v11/abc_background_cache_hint_selector_material_dark.xml",
-        "source": "/home/unlimited_power/workspace/AirBooks_Development/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.3.0/res/color-v11/abc_background_cache_hint_selector_material_dark.xml"
+        "merged": "C:\\Users\\Rodrigo\\Desktop\\AirBooks_Development\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\Users\\Rodrigo\\Desktop\\AirBooks_Development\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\Rodrigo\\Desktop\\AirBooks_Development\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\Users\\Rodrigo\\Desktop\\AirBooks_Development\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "C:\\home\\unlimited_power\\workspace\\AirBooks_Development\\app\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\home\\unlimited_power\\workspace\\AirBooks_Development\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.3.0\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
     }
 ]

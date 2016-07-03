@@ -21,14 +21,11 @@
         android:id="@+id/textView4"
         android:layout_gravity="center_horizontal" />
 
-    <EditText
-        android:layout_width="296dp"
+    <fragment
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="5"
-        android:id="@+id/add_Base_EditText"
-        android:layout_gravity="center_horizontal"
-        android:hint="Home Airport"
-        android:textStyle="bold" />
+        android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+        android:id="@+id/base_airport_fragment" />
 
     <RelativeLayout
         android:orientation="vertical"
