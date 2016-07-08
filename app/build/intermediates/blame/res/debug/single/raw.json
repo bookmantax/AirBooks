@@ -1,26 +1,14 @@
 [
     {
-        "merged": "C:\\Users\\Rodrigo\\Desktop\\AirBooks_Development\\app\\build\\intermediates\\res\\merged\\debug\\raw\\airports.csv",
-        "source": "C:\\Users\\Rodrigo\\Desktop\\AirBooks_Development\\app\\src\\main\\res\\raw\\airports.csv"
+        "merged": "C:\\Users\\Cristi\\Documents\\GitHub\\AirBooks\\app\\build\\intermediates\\res\\merged\\debug\\raw\\per_diem.csv",
+        "source": "C:\\Users\\Cristi\\Documents\\GitHub\\AirBooks\\app\\src\\main\\res\\raw\\per_diem.csv"
     },
     {
-        "merged": "C:\\home\\unlimited_power\\workspace\\AirBooks_Development\\app\\build\\intermediates\\res\\merged\\debug\\raw\\airports.csv",
-        "source": "C:\\home\\unlimited_power\\workspace\\AirBooks_Development\\app\\src\\main\\res\\raw\\airports.csv"
+        "merged": "C:\\Users\\Cristi\\Documents\\GitHub\\AirBooks\\app\\build\\intermediates\\res\\merged\\debug\\raw\\int_airports.csv",
+        "source": "C:\\Users\\Cristi\\Documents\\GitHub\\AirBooks\\app\\src\\main\\res\\raw\\int_airports.csv"
     },
     {
-        "merged": "C:\\Users\\Rodrigo\\Desktop\\AirBooks_Development\\app\\build\\intermediates\\res\\merged\\debug\\raw\\int_airports.csv",
-        "source": "C:\\Users\\Rodrigo\\Desktop\\AirBooks_Development\\app\\src\\main\\res\\raw\\int_airports.csv"
-    },
-    {
-        "merged": "C:\\home\\unlimited_power\\workspace\\AirBooks_Development\\app\\build\\intermediates\\res\\merged\\debug\\raw\\int_airports.csv",
-        "source": "C:\\home\\unlimited_power\\workspace\\AirBooks_Development\\app\\src\\main\\res\\raw\\int_airports.csv"
-    },
-    {
-        "merged": "C:\\home\\unlimited_power\\workspace\\AirBooks_Development\\app\\build\\intermediates\\res\\merged\\debug\\raw\\per_diem.csv",
-        "source": "C:\\home\\unlimited_power\\workspace\\AirBooks_Development\\app\\src\\main\\res\\raw\\per_diem.csv"
-    },
-    {
-        "merged": "C:\\Users\\Rodrigo\\Desktop\\AirBooks_Development\\app\\build\\intermediates\\res\\merged\\debug\\raw\\per_diem.csv",
-        "source": "C:\\Users\\Rodrigo\\Desktop\\AirBooks_Development\\app\\src\\main\\res\\raw\\per_diem.csv"
+        "merged": "C:\\Users\\Cristi\\Documents\\GitHub\\AirBooks\\app\\build\\intermediates\\res\\merged\\debug\\raw\\airports.csv",
+        "source": "C:\\Users\\Cristi\\Documents\\GitHub\\AirBooks\\app\\src\\main\\res\\raw\\airports.csv"
     }
 ]

@@ -7,8 +7,11 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
-    <!-- permission required to Send SMS -->
+    <!-- Permission to start Alarm on device reboot -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <!-- permission required to Send SMS
     <uses-permission android:name="android.permission.SEND_SMS"/>
+     -->
 
     <application
         android:allowBackup="true"
@@ -163,19 +166,22 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-		
-		<activity
-            android:name="com.airbooks.AlarmHandler"
-            android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="com.airbooks.AlarmHandler" />
 
-                <category android:name="android.intent.category.DEFAULT" />
+        <!-- Register the Alarm Receiver -->
+
+        <receiver android:name=".AlarmReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
-        </activity>
-		
-		<!-- Register the Alarm Receiver -->
-                   <receiver android:name=".AlarmReciever"/> 
+        </receiver>
+
+        <!-- Will not be called unless the application explicitly enables it -->
+        <receiver android:name=".DeviceBootReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
 
         <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
@@ -187,5 +193,6 @@
             android:value="AIzaSyBGuGniN3Ubhj43EpNgmu87HUEEMlMHBL0"/>
 
         <service android:name="com.airbooks.LocationService" android:process=":location_service"/>
+
     </application>
 </manifest>

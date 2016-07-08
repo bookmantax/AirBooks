@@ -9,7 +9,6 @@ import android.view.View;
 public class SplashScreen extends Activity {
 
     DatabaseHelper myDB;
-    AlarmHandler alarmHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

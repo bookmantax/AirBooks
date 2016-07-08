@@ -1,2 +1,3 @@
-CHANGED,C:\Users\Rodrigo\Desktop\AirBooks_Development\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
-CHANGED,C:\Users\Rodrigo\Desktop\AirBooks_Development\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\airbooks\SplashScreen$override.class
+CHANGED,C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\airbooks\MainActivity$5$override.class
+CHANGED,C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\airbooks\MainActivity$override.class
+CHANGED,C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class

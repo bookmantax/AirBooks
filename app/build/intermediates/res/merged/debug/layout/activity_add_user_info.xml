@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,40 +10,54 @@
         android:text="Welcome!"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:textSize="50dp" />
+        android:textSize="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Please Select your base airport."
+        android:text="Please enter the code of your base airport."
         android:id="@+id/textView4"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="122dp"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
 
+    <!-- For autocomplete
     <fragment
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
         android:id="@+id/base_airport_fragment" />
+    -->
 
-    <RelativeLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
+    <EditText
+        android:layout_width="247dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
+        android:id="@+id/add_Base_EditText"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="137dp"
+        android:layout_marginTop="29dp"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:capitalize="characters"
+        android:maxLength="4"
+        android:textAlignment="center" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Save"
-            android:id="@+id/add_save_btn"
-            android:layout_marginLeft="0dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="48dp"
-            android:layout_centerInParent="true" />
+    <Button
+        android:layout_width="114dp"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/add_save_btn"
+        android:layout_marginLeft="174dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/add_Base_EditText"
+        android:layout_centerHorizontal="true" />
 
-
-    </RelativeLayout>
-
-</LinearLayout>
+</RelativeLayout>

@@ -10,6 +10,7 @@ import android.location.LocationManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -22,67 +23,61 @@ import java.util.Locale;
 /**
  * TODO Line 84
  */
-public class LocationService extends Service{
+public class LocationService extends Service {
+
     private static final String TAG = "FIRSTCLASSTAXGPS";
     private LocationManager mLocationManager = null;
     private static final int LOCATION_INTERVAL = 1000;
     private static final float LOCATION_DISTANCE = 0;
     DatabaseHelper db = new DatabaseHelper(this);
     String country, state, city;
-    Double latitude;
-    Double longitude;
-    int perDiem;
-    int finalPerDiem = 0;
+    Double latitude, longitude, meals, finalMeals = 0.0;
+    int perDiem, finalPerDiem = 0;
 
-    private class LocationListener implements android.location.LocationListener
-    {
+    private class LocationListener implements android.location.LocationListener {
         Location mLastLocation;
 
-        public LocationListener(String provider)
-        {
+        public LocationListener(String provider) {
             Log.e(TAG, "LocationListener " + provider);
             mLastLocation = new Location(provider);
         }
 
+
         @Override
-        public void onLocationChanged(Location location)
-        {
+        public void onLocationChanged(Location location) {
             Log.e(TAG, "onLocationChanged: " + location);
             mLastLocation.set(location);
         }
 
         @Override
-        public void onProviderDisabled(String provider)
-        {
+        public void onProviderDisabled(String provider) {
             Log.e(TAG, "onProviderDisabled: " + provider);
         }
 
         @Override
-        public void onProviderEnabled(String provider)
-        {
+        public void onProviderEnabled(String provider) {
             Log.e(TAG, "onProviderEnabled: " + provider);
         }
 
         @Override
-        public void onStatusChanged(String provider, int status, Bundle extras)
-        {
+        public void onStatusChanged(String provider, int status, Bundle extras) {
             Log.e(TAG, "onStatusChanged: " + provider);
         }
     }
 
-    LocationListener[] mLocationListeners = new LocationListener[] {
+    LocationListener[] mLocationListeners = new LocationListener[]{
             new LocationListener(LocationManager.GPS_PROVIDER),
             new LocationListener(LocationManager.NETWORK_PROVIDER)
     };
 
     @Override
-    public IBinder onBind(Intent arg0)
-    {
+    public IBinder onBind(Intent arg0) {
         return null;
     }
-/**
- * TODO: https://developer.android.com/reference/android/location/LocationManager.html#getBestProvider%28android.location.Criteria,%20boolean%29
- */
+
+    /**
+     * TODO: https://developer.android.com/reference/android/location/LocationManager.html#getBestProvider%28android.location.Criteria,%20boolean%29
+     */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
@@ -97,7 +92,7 @@ public class LocationService extends Service{
          * altitude
          */
         mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        // Sets the criteria for a fine and low power provider
+        //Sets the criteria for a fine and low power provider
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_FINE);
         criteria.setPowerRequirement(Criteria.POWER_LOW);
@@ -134,10 +129,9 @@ public class LocationService extends Service{
         return START_STICKY;
     }
 
-
-
     /**
      * Set Per Diem Value Based in Location
+     *
      * @return
      */
     public int setPerDiem() {
@@ -147,7 +141,7 @@ public class LocationService extends Service{
         } else if (finalPerDiem == 0) {
             int statePerDiem = getPerDiemState();
             finalPerDiem = statePerDiem;
-        } else if (finalPerDiem == 0){
+        } else if (finalPerDiem == 0) {
             int countryPerDiem = getPerDiemCountry();
             finalPerDiem = countryPerDiem;
         }
@@ -155,7 +149,7 @@ public class LocationService extends Service{
     }
 
 
-        public int getPerDiemCountry() {
+    public int getPerDiemCountry() {
         perDiem = db.getPerDiemByCountry(country);
         if (perDiem != 0) {
             return perDiem;
@@ -170,6 +164,7 @@ public class LocationService extends Service{
         }
         return 0;
     }
+
     public int getPerDiemCity() {
         perDiem = db.getPerDiemByCity(city);
         if (perDiem != 0) {
@@ -178,16 +173,58 @@ public class LocationService extends Service{
         return 0;
     }
 
+    /**
+     * Set Meals Per Diem Value Based in Location
+     *
+     * @return
+     */
+    public Double setMeals() {
+        if (meals == 0.0) {
+            Double cityMeals = getCityMeals();
+            finalMeals = cityMeals;
+        } else if (finalMeals == 0.0) {
+            Double stateMeals = getStateMeals();
+            finalMeals = stateMeals;
+        } else if (finalMeals == 0.0) {
+            Double countryMeals = getCountryMeals();
+            finalMeals = countryMeals;
+        }
+        return finalMeals;
+    }
+
+
+    public Double getCountryMeals() {
+        meals = db.getMealsByCountry(country);
+        if (meals != 0.0) {
+            return meals;
+        }
+        return 0.0;
+    }
+
+    public Double getStateMeals() {
+        meals = db.getMealsBySate(state);
+        if (meals != 0.0) {
+            return meals;
+        }
+        return 0.0;
+    }
+
+    public Double getCityMeals() {
+        meals = db.getMealsByCity(city);
+        if (meals != 0.0) {
+            return meals;
+        }
+        return 0.0;
+    }
+
     @Override
-    public void onCreate()
-    {
+    public void onCreate() {
         Log.e(TAG, "onCreate");
         initializeLocationManager();
     }
 
     @Override
-    public void onDestroy()
-    {
+    public void onDestroy() {
         Log.e(TAG, "onDestroy");
         super.onDestroy();
         if (mLocationManager != null) {
@@ -245,6 +282,73 @@ public class LocationService extends Service{
             e.printStackTrace();
         }
         city = addresses.get(0).getLocality();
-            return city;
+        return city;
     }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * Location method called by the AlarmReceiver class to obtain the current location
+     * by best provider
+     * TODO: Need to be implemented
+     * @return
+     */
+
+    public String whereAmI() {
+
+        // Variables
+        Date sDate = Calendar.getInstance().getTime();
+
+        mLocationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        //Sets the criteria for a fine and low power provider
+        Criteria criteria = new Criteria();
+        criteria.setAccuracy(Criteria.ACCURACY_FINE);
+        criteria.setPowerRequirement(Criteria.POWER_LOW);
+        // Gets the best matched provider, and only if it's on
+        String bestProvider = getProviderName();
+
+        try {
+            Log.i(TAG, "I'm getting your location");
+            mLocationManager.requestLocationUpdates(bestProvider, LOCATION_INTERVAL, LOCATION_DISTANCE, mLocationListeners[1]);
+            Location l = mLocationManager.getLastKnownLocation(bestProvider);
+            latitude = l.getLatitude();
+            longitude = l.getLongitude();
+            country = country(latitude, longitude);
+            state = state(latitude, longitude);
+            city = city(latitude, longitude);
+            setPerDiem();
+            if (l != null) {
+                String location = country + " - " + state + " - " + city
+                        + " " + sDate.toString() + " " + String.valueOf(finalMeals);
+                return location;
+            }
+        } catch (java.lang.SecurityException ex) {
+            Log.i(TAG, "fail to request location update, ignore", ex);
+        } catch (IllegalArgumentException ex) {
+            Log.d(TAG, "network provider does not exist, " + ex.getMessage());
+        }
+        return null;
+    }
+
+    /**
+     * Get provider name.
+     * @return Name of best suiting provider.
+     * */
+    String getProviderName() {
+         mLocationManager = (LocationManager) this
+                .getSystemService(Context.LOCATION_SERVICE);
+
+        Criteria criteria = new Criteria();
+        criteria.setPowerRequirement(Criteria.POWER_LOW); // Chose your desired power consumption level.
+        criteria.setAccuracy(Criteria.ACCURACY_FINE); // Choose your accuracy requirement.
+        criteria.setSpeedRequired(true); // Chose if speed for first location fix is required.
+        criteria.setAltitudeRequired(false); // Choose if you use altitude.
+        criteria.setBearingRequired(false); // Choose if you use bearing.
+        criteria.setCostAllowed(false); // Choose if this provider can waste money :-)
+
+        // Provide your criteria and flag enabledOnly that tells
+        // LocationManager only to return active providers.
+        return mLocationManager.getBestProvider(criteria, true);
+    }
+
  }

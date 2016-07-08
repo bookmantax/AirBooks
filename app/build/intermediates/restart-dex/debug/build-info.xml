@@ -1,42 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="arm64-v8a,armeabi-v7a,armeabi"
+    abi="x86"
     api-level="23"
-    density="xxhdpi"
+    density="420dpi"
     format="7"
-    timestamp="4822761972450"
-    token="3443914201527092464" >
+    timestamp="60857567794918"
+    token="-466573900188238560" >
 
     <task
         name="javac"
-        duration="197" />
+        duration="370" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="35" />
+        duration="87" />
     <task
         name="verifier"
-        duration="3" />
+        duration="4" />
 
     <artifact
-        location="C:\Users\Rodrigo\Desktop\AirBooks_Development\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
+        location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
         type="DEX" />
 
-    <build timestamp="4640773021604" >
+    <build timestamp="59746834062210" >
         <artifact
-            location="C:\Users\Rodrigo\Desktop\AirBooks_Development\app\build\outputs\apk\app-debug.apk"
+            location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
-    <build timestamp="4822761972450" >
+    <build timestamp="60857567794918" >
         <artifact
-            location="C:\Users\Rodrigo\Desktop\AirBooks_Development\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
-            type="DEX" />
-    </build>
-    <build timestamp="16504732933951" >
-        <artifact
-            location="C:\home\unlimited_power\workspace\AirBooks_Development\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
+            location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
             type="DEX" />
     </build>
 

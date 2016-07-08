@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Variables
     private static Button button_sbm;
+    public PendingIntent pendingIntent;
     // Options Menu Variables
     private static final int EDIT_PROFILE = Menu.FIRST + 1;
     private static final int ABOUT = Menu.FIRST + 2;
@@ -47,23 +49,22 @@ public class MainActivity extends AppCompatActivity {
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
-        Calendar cur_cal = Calendar.getInstance();
-        cur_cal.setTimeInMillis(System.currentTimeMillis());
-        Intent intent = new Intent(this, LocationService.class);
-        PendingIntent pi = PendingIntent.getService(this, 0, intent, 0);
-        AlarmManager alarm_manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        alarm_manager.setRepeating(AlarmManager.RTC, cur_cal.getTimeInMillis(), (1000 * 60 * 60 * 2),  pi);
 
         OnClickButtonListenerCurrentTrip();
         OnClickButtonListenerViewTripHistory();
         OnClickButtonListenerTaxDeductionsToDate();
         OnClickButtonListenerPerDiemSearch();
-        OnClickButtonListenerSpeedManager();
-        OnClickButtonListenerAlarmHandler();
+//        OnClickButtonListenerSpeedManager();
+//        OnClickButtonListenerAlarmHandler();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+         /* Retrieve a PendingIntent that will perform a broadcast */
+        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(this, 1, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        startAlarm();
     }
 
     // Current Trip Listener
@@ -122,34 +123,6 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
-    // View Trip History Listener
-    public void OnClickButtonListenerSpeedManager() {
-        button_sbm = (Button) findViewById(R.id.main_Menu_Speed_Btn);
-        button_sbm.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent("com.airbooks.SpeedManager");
-                        startActivity(intent);
-                    }
-                }
-        );
-    }
-
-    // Alarm Listener
-    public void OnClickButtonListenerAlarmHandler() {
-        button_sbm = (Button) findViewById(R.id.main_alarm_button);
-        button_sbm.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent("com.airbooks.AlarmHandler");
-                        startActivity(intent);
-                    }
-                }
-        );
-    }
-
     @Override
     public void onStart() {
         super.onStart();
@@ -190,6 +163,29 @@ public class MainActivity extends AppCompatActivity {
         client.disconnect();
     }
 
+    public void startAlarm() {
+        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+//        int interval = 86400000; // 24 h
+        int interval= 86400000;
+
+        /* Set the alarm to start at 11:59 PM */
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 23);
+        calendar.set(Calendar.MINUTE, 59);
+        calendar.set(Calendar.SECOND, 00);
+        manager.set(AlarmManager.ELAPSED_REALTIME,calendar.getTimeInMillis(),pendingIntent);
+
+        /* Repeating on every 24 hours interval */
+        manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), interval, pendingIntent);
+
+        Calendar calendar2 = Calendar.getInstance();
+        calendar2.setTimeInMillis(calendar.getTimeInMillis() + 86400000);
+
+        Toast.makeText(this, "Alarm Set at " + calendar2.getTime(), Toast.LENGTH_LONG).show();
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
     // Options menu to shout about info
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
