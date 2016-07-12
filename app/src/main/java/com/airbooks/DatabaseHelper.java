@@ -413,7 +413,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Double getMealsByCity(String city){
-        SQLiteDatabase db = getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("Select PER_DIEM_MEALS_AND_INCIDENTALS from " + PER_DIEM_TABLE_NAME
                 + " where PER_DIEM_CITY = '" + city + "'", null);
         if(cursor.getCount() > 0){
@@ -456,4 +456,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return 0.0;
     }
 
+		// Return home location from user info table base airport
+	    public String getHomeLocation(){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select BASE from " + USER_TABLE_NAME, null);
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            String base = cursor.getString(cursor.getColumnIndex("BASE"));
+			return base;
+        }
+        return null;
+    }
+
+    public Double getHomeLatitude_IATA(String base){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select AIRPORT_LATITUDE from " + AIRPORTS_TABLE_NAME
+                + " where AIRPORT_IATA_FAA = '" + base + "'", null);
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            Double latitude = cursor.getDouble(cursor.getColumnIndex("AIRPORT_LATITUDE"));
+            return latitude;
+        }
+        return 0.0;
+    }
+
+    public Double getHomeLongitude_IATA(String base){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select AIRPORT_LONGITUDE from " + AIRPORTS_TABLE_NAME
+                + " where AIRPORT_IATA_FAA = '" + base + "'", null);
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            Double longitude = cursor.getDouble(cursor.getColumnIndex("AIRPORT_LONGITUDE"));
+            return longitude;
+        }
+        return 0.0;
+    }
 }

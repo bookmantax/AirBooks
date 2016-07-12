@@ -33,7 +33,7 @@ public class CurrentTrip extends AppCompatActivity implements View.OnClickListen
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent("com.airbooks.LocationManager");
+                        Intent intent = new Intent("com.airbooks.MyLocationManager");
                         startActivity(intent);
                     }
                 }

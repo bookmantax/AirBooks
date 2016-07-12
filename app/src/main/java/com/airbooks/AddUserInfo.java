@@ -71,7 +71,7 @@ public class AddUserInfo extends AppCompatActivity implements View.OnClickListen
 //                Log.i(TAG, "Place: " + place.getName());//get place details here
 //                latLng = place.getLatLng();
 //                cityName = place.getName().toString();
-//                latitude = latLng.latitude;
+//                currentLatitude = latLng.currentLatitude;
 //                longitude = latLng.longitude;
 //                //get value in numDaysText, set trip info in Database(location, number of days)
 //            }

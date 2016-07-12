@@ -25,7 +25,7 @@ public class GPSManager extends Service implements LocationListener {
     // flag for GPS status
     boolean canGetLocation = false;
     Location location; // location
-    double latitude; // latitude
+    double latitude; // currentLatitude
     double longitude; // longitude
 
     // The minimum distance to change Updates in meters
@@ -111,14 +111,14 @@ public class GPSManager extends Service implements LocationListener {
     }
 
     /**
-     * Function to get latitude
+     * Function to get currentLatitude
      * */
     public double getLatitude(){
         if(location != null){
             latitude = location.getLatitude();
         }
 
-        // return latitude
+        // return currentLatitude
         return latitude;
     }
 

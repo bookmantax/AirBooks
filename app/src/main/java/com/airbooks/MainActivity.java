@@ -49,14 +49,20 @@ public class MainActivity extends AppCompatActivity {
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
-
         OnClickButtonListenerCurrentTrip();
         OnClickButtonListenerViewTripHistory();
         OnClickButtonListenerTaxDeductionsToDate();
         OnClickButtonListenerPerDiemSearch();
 //        OnClickButtonListenerSpeedManager();
 //        OnClickButtonListenerAlarmHandler();
-
+        GPSManager gps = new GPSManager(this);
+        // check GPS active
+        if (gps.canGetLocation()) {
+            Passvalues.isLocationAvailable = true;
+        }
+        else{
+            gps.showSettingsAlert();
+        }
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -64,8 +70,11 @@ public class MainActivity extends AppCompatActivity {
          /* Retrieve a PendingIntent that will perform a broadcast */
         Intent alarmIntent = new Intent(this, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(this, 1, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        // Set Alarm
         startAlarm();
     }
+
 
     // Current Trip Listener
     public void OnClickButtonListenerCurrentTrip() {
@@ -166,7 +175,8 @@ public class MainActivity extends AppCompatActivity {
     public void startAlarm() {
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 //        int interval = 86400000; // 24 h
-        int interval= 86400000;
+//        int interval= 86400000;
+        int interval= 3600000;
 
         /* Set the alarm to start at 11:59 PM */
         Calendar calendar = Calendar.getInstance();
@@ -180,10 +190,11 @@ public class MainActivity extends AppCompatActivity {
         manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), interval, pendingIntent);
 
         Calendar calendar2 = Calendar.getInstance();
-        calendar2.setTimeInMillis(calendar.getTimeInMillis() + 86400000);
+        calendar2.setTimeInMillis(calendar.getTimeInMillis() + 3600000);
 
         Toast.makeText(this, "Alarm Set at " + calendar2.getTime(), Toast.LENGTH_LONG).show();
     }
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Options menu to shout about info

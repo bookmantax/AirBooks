@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:2:1-198:12
+ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:2:1-196:12
 	package
 		ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:3:5-27
 		INJECTED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml
@@ -35,7 +35,7 @@ ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifes
 	android:name
 		ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:11:22-78
 application
-ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:16:5-197:19
+ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:16:5-195:19
 MERGED from [com.android.support:appcompat-v7:23.3.0] C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-vector-drawable:23.3.0] C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:support-v4:23.3.0] C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\AndroidManifest.xml:22:5-20
@@ -223,18 +223,18 @@ action#com.airbooks.AddUserInfo
 ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:109:17-67
 	android:name
 		ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:109:25-64
-activity#com.airbooks.LocationManager
+activity#com.airbooks.MyLocationManager
 ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:116:9-124:20
 	android:theme
 		ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:118:13-44
 	android:name
-		ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:117:13-56
-intent-filter#android.intent.category.DEFAULT+com.airbooks.LocationManager
+		ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:117:13-46
+intent-filter#android.intent.category.DEFAULT+com.airbooks.MyLocationManager
 ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:119:13-123:29
-action#com.airbooks.LocationManager
-ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:120:17-71
+action#com.airbooks.MyLocationManager
+ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:120:17-73
 	android:name
-		ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:120:25-68
+		ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:120:25-70
 activity#com.airbooks.LandingDate
 ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:127:9-135:20
 	android:theme
@@ -329,12 +329,6 @@ ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifes
 		ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:193:13-68
 	android:name
 		ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:192:13-58
-service#com.airbooks.LocationService
-ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:195:9-99
-	android:process
-		ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:195:62-97
-	android:name
-		ADDED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml:195:18-61
 uses-sdk
 INJECTED from C:\Users\Cristi\Documents\GitHub\AirBooks\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.3.0] C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\AndroidManifest.xml:21:5-23:78

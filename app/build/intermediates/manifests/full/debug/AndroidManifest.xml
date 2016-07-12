@@ -116,10 +116,10 @@
         </activity>
         // New Activity Location
         <activity
-            android:name="com.airbooks.LocationManager"
+            android:name="com.airbooks.MyLocationManager"
             android:theme="@style/AppTheme" >
             <intent-filter>
-                <action android:name="com.airbooks.LocationManager" />
+                <action android:name="com.airbooks.MyLocationManager" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -192,10 +192,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBGuGniN3Ubhj43EpNgmu87HUEEMlMHBL0" />
-
-        <service
-            android:name="com.airbooks.LocationService"
-            android:process=":location_service" />
 
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
