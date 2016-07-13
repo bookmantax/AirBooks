@@ -159,7 +159,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     /*
          * Add Airport values to Airports Table
          */
+
     public String fillAirportsTable(Context ctx, int resId) {
+
 
         InputStream inputStream = ctx.getResources().openRawResource(resId);
 
@@ -484,6 +486,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("Select AIRPORT_LONGITUDE from " + AIRPORTS_TABLE_NAME
                 + " where AIRPORT_IATA_FAA = '" + base + "'", null);
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            Double longitude = cursor.getDouble(cursor.getColumnIndex("AIRPORT_LONGITUDE"));
+            return longitude;
+        }
+        return 0.0;
+    }
+
+    public Double getHomeLatitude_ICAO(String base){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select AIRPORT_LATITUDE from " + AIRPORTS_TABLE_NAME
+                + " where AIRPORT_ICAO = '" + base + "'", null);
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            Double latitude = cursor.getDouble(cursor.getColumnIndex("AIRPORT_LATITUDE"));
+            return latitude;
+        }
+        return 0.0;
+    }
+
+    public Double getHomeLongitude_ICAO(String base){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select AIRPORT_LONGITUDE from " + AIRPORTS_TABLE_NAME
+                + " where AIRPORT_ICAO = '" + base + "'", null);
         if(cursor.getCount() > 0){
             cursor.moveToFirst();
             Double longitude = cursor.getDouble(cursor.getColumnIndex("AIRPORT_LONGITUDE"));

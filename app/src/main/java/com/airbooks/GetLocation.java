@@ -183,8 +183,16 @@ public class GetLocation extends Service implements android.location.LocationLis
                     state = state(currentLatitude, currentLongitude);
                     city = city(currentLatitude, currentLongitude);
                     base = getBase();
-                    homeLatitude = getBaseLatitude(base);
-                    homeLongitude = getBaseLongitude(base);
+
+                    int length = base.length();
+                    if (length == 3) {
+                        homeLatitude = getBaseLatitudeIATA(base);
+                        homeLongitude = getBaseLongitudeIATA(base);
+                    } else {
+                        homeLatitude = getBaseLatitudeICAO(base);
+                        homeLongitude = getBaseLongitudeICAO(base);
+                    }
+
                     setPerDiem();
                     if (l != null) {
 
@@ -342,7 +350,7 @@ public class GetLocation extends Service implements android.location.LocationLis
         return null;
     }
 
-    public Double getBaseLatitude(String homeAirport) {
+    public Double getBaseLatitudeIATA(String homeAirport) {
         homeLatitude = db.getHomeLatitude_IATA(homeAirport);
         if (homeLatitude != null) {
             return homeLatitude;
@@ -350,8 +358,24 @@ public class GetLocation extends Service implements android.location.LocationLis
         return null;
     }
 
-    public Double getBaseLongitude(String homeAirport) {
+    public Double getBaseLongitudeIATA(String homeAirport) {
         homeLongitude = db.getHomeLongitude_IATA(homeAirport);
+        if (homeLongitude != null) {
+            return homeLongitude;
+        }
+        return null;
+    }
+
+    public Double getBaseLatitudeICAO(String homeAirport) {
+        homeLatitude = db.getHomeLatitude_ICAO(homeAirport);
+        if (homeLatitude != null) {
+            return homeLatitude;
+        }
+        return null;
+    }
+
+    public Double getBaseLongitudeICAO(String homeAirport) {
+        homeLongitude = db.getHomeLongitude_ICAO(homeAirport);
         if (homeLongitude != null) {
             return homeLongitude;
         }

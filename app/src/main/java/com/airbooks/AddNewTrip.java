@@ -20,6 +20,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+/**
+ * This class allow the user to set a trip manually
+ */
+
 public class AddNewTrip extends AppCompatActivity {
 
     private static Button button_sbm;

@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import static android.support.v4.content.WakefulBroadcastReceiver.startWakefulService;
+
 /**
  * Created by unlimited_power on 7/6/16.
  */
@@ -16,16 +18,17 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     // Variables
 
-    boolean isAtHomeArea = false; //TODO: Change home area to 75 after test, delete toast messages.
+    boolean isAtHomeArea = false;
     int  miles; // Miles ( it might need to be converted to meters)
-    Double currentLatitude, currentLongitude, homeLatitude, homeLongitude, perDiem, distance, homeArea = 14.0;
+    Double currentLatitude, currentLongitude, homeLatitude, homeLongitude, perDiem, distance, homeArea = 75.0;
     String country, state, city;
     private LocationManager mLocationManager = null;
 
-
+// TODO : check device wakeUp https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html
 
     @Override
     public void onReceive(Context context, Intent intent) {
+
 
         GetLocation gL = new GetLocation(context);
         String[] locationStringArray = gL.whereAmI(context);
@@ -51,19 +54,14 @@ public class AlarmReceiver extends BroadcastReceiver {
 
            String location =  country + " - " + state + " - " + city;
             gL.recordTrip(location, perDiem);
-            // For our recurring task, we'll just display a message
-            Toast.makeText(context, distance + " from Home!", Toast.LENGTH_LONG).show();
-
+//            Toast.makeText(context, distance + " from Home!", Toast.LENGTH_LONG).show();
         } else {
             // Don't Record location
-            Toast.makeText(context, distance + " You are at home!", Toast.LENGTH_LONG).show();
+//            Toast.makeText(context, distance + " You are at home!", Toast.LENGTH_LONG).show();
         }
     }
 
-    // https://developer.android.com/reference/android/location/Location.html#distanceBetween(double, double, double, double, float[])
-    // Haversine Formula: http://www.movable-type.co.uk/scripts/latlong.html
-    // Vincenty Formula: http://www.movable-type.co.uk/scripts/latlong-vincenty.html
-
+     // Haversine Formula: http://www.movable-type.co.uk/scripts/latlong.html
 	 public double distance(double homeLat, double homeLong, double currentLat, double currentLong){
 
 	 int R = 6371; // km

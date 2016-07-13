@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="arm64-v8a,armeabi-v7a,armeabi"
+    abi="x86"
     api-level="23"
-    density="xxhdpi"
+    density="420dpi"
     format="7"
-    timestamp="10453637792099"
+    timestamp="88535645250896"
     token="-466573900188238560" >
 
     <task
         name="javac"
-        duration="819" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="359" />
+        duration="0" />
     <task
         name="verifier"
-        duration="26" />
+        duration="0" />
 
-    <artifact
-        location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\outputs\apk\app-debug.apk"
-        type="MAIN" />
-
-    <build timestamp="10453637792099" >
+    <build timestamp="88183292398763" >
         <artifact
             location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
+    <build timestamp="88535645250896" />
 
 </instant-run>
