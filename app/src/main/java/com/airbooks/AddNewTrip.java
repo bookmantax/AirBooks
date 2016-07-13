@@ -1,9 +1,15 @@
 package com.airbooks;
 
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,11 +27,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
- * This class allow the user to set a trip manually
+ * This class allow the user to save a trip manually in case the app didn't record it
+ * due to several factors, like cell off, airplane mode, no gps, cell, wi-fi signal etc
  */
 
 public class AddNewTrip extends AppCompatActivity {
 
+    //Variables
     private static Button button_sbm;
     public static final String TAG = PerDiemSearch.class.getSimpleName();
     double latitude, longitude;
@@ -35,6 +43,10 @@ public class AddNewTrip extends AppCompatActivity {
     DatabaseHelper db = new DatabaseHelper(this);
     PlaceAutocompleteFragment autocompleteFragment;
     int days;
+    // Options Menu Variables
+    private static final int EDIT_PROFILE = Menu.FIRST + 1;
+    private static final int ABOUT = Menu.FIRST + 2;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,9 +123,10 @@ public class AddNewTrip extends AppCompatActivity {
                         dayOut = departingDate.getText().toString();
 
                         if(cityName != "" && dayIn != "" && dayOut != "") {
-                            int perDiem = db.getPerDiemByCity(cityName);
+//                            int perDiem = db.getPerDiemByCity(cityName); // TODO: Leaved for future usage
+                            int perDiem = db.getMealsByCity(cityName).intValue();
                             days = daysBetween(dayIn, dayOut);
-                            int totalPerDiem = perDiem * days;
+                            int totalPerDiem = perDiem * (days - 1 ); // removing value of departing day
                             boolean isInserted = db.insertTrip(
                                     cityName, dayIn, dayOut, String.valueOf(totalPerDiem)
                             );
@@ -149,4 +162,46 @@ public class AddNewTrip extends AppCompatActivity {
         return daysBetween;
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Options menu to shout about info
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(Menu.NONE, EDIT_PROFILE, Menu.NONE, "Edit Profile").setAlphabeticShortcut('e');
+        menu.add(Menu.NONE, ABOUT, Menu.NONE, "About").setAlphabeticShortcut('?');
+        return (super.onCreateOptionsMenu(menu));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case EDIT_PROFILE:
+                Edit_Profile();
+                return (true);
+            case ABOUT:
+                about();
+                return (true);
+        }
+
+        return (super.onOptionsItemSelected(item));
+    }
+
+    private void Edit_Profile() {
+        Intent intent = new Intent("com.airbooks.EditUserInfo");
+        startActivity(intent);
+    }
+    private void about() {
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View addView = inflater.inflate(R.layout.about, null);
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.about)
+                .setView(addView)
+                .setNegativeButton(R.string.close,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int whichButton) {
+                                // ignore, just dismiss
+                            }
+                        })
+                .show();
+    }
 }

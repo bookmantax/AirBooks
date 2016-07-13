@@ -7,24 +7,29 @@ public class TODO {
 
 
     /**
-     *
-     * TODO : Use AlarmManager to monitor location every 15 minutes,
-     * https://developer.android.com/reference/android/app/AlarmManager.html
-     * http://www.androidhive.info/2015/02/android-location-api-using-google-play-services/
-     * https://developer.android.com/training/location/index.html
-     *
+     * TODO: Create method to save departure date and calculate PerDiem based on # of days.
+     * use addNewTrip.java as an example
      */
 
     /**
-     *
+     * TODO Change CurrentTrip Layout to display the status of the current trip (Loc, Country, State, City, Landing Date)
+     * TODO Change ADD A NEW TRIP button to circled + at bottom right.
+     */
+
+    /**
+     * TODO Fix AddNewTrip to be date proof checking: current day <= departure date >= landing date.
+     */
+
+    /**
+     * TODO: Remove accents from auto complete in PerDiem Search
+     */
+
+    /**
      * TODO : Fix Crash when no GPS signal
-     *
      */
 
     /**
-     *
      * TODO : Delete Plantation line in PerDiem raw file (created for test purposes)
-     *
      */
 
 

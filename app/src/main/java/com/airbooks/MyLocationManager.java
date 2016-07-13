@@ -11,13 +11,19 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Class created by Rodrigo Escobar to display the current location coordinates,
+ * City, State, Country based in current location
+ * Total per diem for current location
+ * TODO: Want to move it to CurrentTrip Layout to display the status of the current trip and landing date.
+ */
 
 public class MyLocationManager extends Activity {
 
 
     protected Context context;
     DatabaseHelper db = new DatabaseHelper(this);
-    TextView txtLat, txtCountry, txtState, txtCity, txtPerDiem, txtMeals, txtLodging ;
+    TextView txtLat, txtCountry, txtState, txtCity, txtPerDiem, txtMeals, txtLodging ; // TODO: Leaved for future usage
     String lat, longitude, country, state, city;
     Double meals = 0.0, finalMeals = 0.0, lodging = 0.0, finalLodging = 0.0;
     int perDiem = 0, finalPerDiem = 0;
@@ -31,8 +37,8 @@ public class MyLocationManager extends Activity {
         txtState = (TextView) findViewById(R.id.state_tv);
         txtCity = (TextView) findViewById(R.id.city_tv);
         txtPerDiem = (TextView) findViewById(R.id.perDiem_tv);
-        txtMeals = (TextView) findViewById(R.id.meals_tv);
-        txtLodging = (TextView) findViewById(R.id.lodging_tv);
+//        txtMeals = (TextView) findViewById(R.id.meals_tv); // TODO: Leaved for future usage
+//        txtLodging = (TextView) findViewById(R.id.lodging_tv); // TODO: Leaved for future usage
 
 
         GPSManager gps = new GPSManager(this);
@@ -44,7 +50,8 @@ public class MyLocationManager extends Activity {
             country = country(gps.getLatitude(), gps.getLongitude());
             state = state(gps.getLatitude(), gps.getLongitude());
             city = city(gps.getLatitude(), gps.getLongitude());
-            perDiem = setPerDiem();
+//            perDiem = setPerDiem(); // TODO: Leaved for future usage
+            perDiem = finalMeals.intValue();
             finalMeals = setMeals();
             finalLodging = setLodging();
             Passvalues.isLocationAvailable = false;
@@ -58,8 +65,8 @@ public class MyLocationManager extends Activity {
         txtState.setText(state);
         txtCity.setText(city);
         txtPerDiem.setText("$ " + perDiem);
-        txtMeals.setText(" US $ " + String.valueOf(finalMeals));
-        txtLodging.setText(" US $ " + String.valueOf(finalLodging));
+//        txtMeals.setText(" US $ " + String.valueOf(finalMeals)); // TODO: Leaved for future usage
+//        txtLodging.setText(" US $ " + String.valueOf(finalLodging)); // TODO: Leaved for future usage
     }
 
     public String country(Double lat, Double lon) {
@@ -71,7 +78,6 @@ public class MyLocationManager extends Activity {
             e.printStackTrace();
         }
         country = addresses.get(0).getCountryName();
-// Toast.makeText(LocationService.this, "You are @ " + country, Toast.LENGTH_LONG).show();
         return country;
     }
 
@@ -84,7 +90,6 @@ public class MyLocationManager extends Activity {
             e.printStackTrace();
         }
         state = addresses.get(0).getAdminArea();
-// Toast.makeText(LocationService.this, "You are @ " + state, Toast.LENGTH_LONG).show();
         return state;
     }
 
@@ -98,13 +103,13 @@ public class MyLocationManager extends Activity {
             e.printStackTrace();
         }
         city = addresses.get(0).getLocality();
-// Toast.makeText(LocationService.this, "You are @ " + city, Toast.LENGTH_LONG).show();
         return city;
     }
 
     ///// Setters /////
     /**
     * Set Per Diem Value Based in Location
+    * // TODO: Leaved for future usage
     * @return
     */
     public int setPerDiem() {

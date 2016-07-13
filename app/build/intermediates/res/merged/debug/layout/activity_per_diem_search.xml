@@ -27,9 +27,9 @@
         android:layout_gravity="center_horizontal"
         android:textSize="30dp"
         android:layout_marginLeft="517dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="60dp"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignEnd="@+id/per_Diem_TextView" />
 
     <fragment
         android:id="@+id/place_autocomplete_fragment"

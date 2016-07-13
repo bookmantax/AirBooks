@@ -311,6 +311,7 @@
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="about">About</string>
     <string name="action_delete_all">Delete All Geofences</string>
+    <string name="action_settings">Settings</string>
     <string name="app_name">AirBooks</string>
     <string name="app_title">Are We There Yet?</string>
     <string name="close">Close</string>

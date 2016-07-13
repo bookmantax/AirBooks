@@ -31,7 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText3"
-        android:text="Version: 1.0.0"
+        android:text="Version: 1.0.5"
         android:textColor="@color/TextColor.DarkGray"
         android:textSize="20dp"
         android:textAlignment="textStart"
@@ -52,7 +52,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Name and Logo                                                                     Simple Registration Profile"
+        android:text="* Options Menu added to all screens.                                               * Correct PerDiem Values."
         android:id="@+id/textView17"
         android:layout_below="@+id/editText4"
         android:layout_centerHorizontal="true" /><![CDATA[

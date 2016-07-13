@@ -1,0 +1,10 @@
+CHANGED,C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\airbooks\MyLocationManager.class
+CHANGED,C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\airbooks\AddNewTrip$2.class
+CHANGED,C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\airbooks\AddNewTrip$1.class
+CHANGED,C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\airbooks\AddNewTrip$5.class
+CHANGED,C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\airbooks\PerDiemSearch$2.class
+CHANGED,C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\airbooks\AddNewTrip$3.class
+CHANGED,C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\airbooks\AddNewTrip.class
+CHANGED,C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\airbooks\AddNewTrip$4.class
+CHANGED,C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\airbooks\PerDiemSearch$1.class
+CHANGED,C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\airbooks\PerDiemSearch.class
