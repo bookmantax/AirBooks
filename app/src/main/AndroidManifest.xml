@@ -21,7 +21,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:process=":remote">
 
         <activity
             android:name="com.airbooks.SplashScreen"
@@ -171,7 +172,7 @@
         </activity>
 
         <!-- Register the Alarm Receiver -->
-        <receiver android:name="com.airbooks.AlarmReceiver">
+        <receiver android:name="com.airbooks.AlarmReceiver" android:process=":remote">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
@@ -179,7 +180,8 @@
 
         <!-- Will not be called unless the application explicitly enables it -->
         <receiver android:name="com.airbooks.DeviceBootReceiver"
-            android:enabled="false">
+                  android:enabled="false"
+                  android:process=":remote">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>

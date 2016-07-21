@@ -498,7 +498,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("Select AIRPORT_LATITUDE from " + AIRPORTS_TABLE_NAME
                 + " where AIRPORT_ICAO = '" + base + "'", null);
-        if(cursor.getCount() > 0){
+        if(cursor.getCount() > 0) {
             cursor.moveToFirst();
             Double latitude = cursor.getDouble(cursor.getColumnIndex("AIRPORT_LATITUDE"));
             return latitude;
@@ -510,11 +510,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("Select AIRPORT_LONGITUDE from " + AIRPORTS_TABLE_NAME
                 + " where AIRPORT_ICAO = '" + base + "'", null);
-        if(cursor.getCount() > 0){
+        if(cursor.getCount() > 0) {
             cursor.moveToFirst();
             Double longitude = cursor.getDouble(cursor.getColumnIndex("AIRPORT_LONGITUDE"));
             return longitude;
         }
         return 0.0;
     }
+
+    public Cursor getNearAirports(String country){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select AIRPORT_LATITUDE, AIRPORT_LONGITUDE, AIRPORT_CITY from "
+                + AIRPORTS_TABLE_NAME + " where AIRPORT_COUNTRY = '" + country + "'", null);
+        if(cursor.getCount() > 0) {
+            return cursor;
+        }
+        return null;
+    }
+
 }

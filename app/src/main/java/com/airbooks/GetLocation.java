@@ -5,6 +5,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.location.Address;
 import android.location.Criteria;
 import android.location.Geocoder;
@@ -30,7 +31,7 @@ public class GetLocation extends Service implements android.location.LocationLis
     private static final int LOCATION_INTERVAL = 1000;
     private static final float LOCATION_DISTANCE = 0;
     Date sDate = Calendar.getInstance().getTime();
-    Double meals = 0.0, finalMeals = 0.0, currentLatitude, currentLongitude, homeLatitude, homeLongitude;
+    Double meals = 0.0, finalMeals = 0.0, currentLatitude, currentLongitude, homeLatitude, homeLongitude, perDiem;
     String country, state, city, base;
     Context context;
     Location mLastLocation;
@@ -160,7 +161,7 @@ public class GetLocation extends Service implements android.location.LocationLis
                     currentLongitude = l.getLongitude();
                     country = country(currentLatitude, currentLongitude);
                     state = state(currentLatitude, currentLongitude);
-                    city = city(currentLatitude, currentLongitude);
+
                     base = getBase();
 
                     int length = base.length();
@@ -171,8 +172,15 @@ public class GetLocation extends Service implements android.location.LocationLis
                         homeLatitude = getBaseLatitudeICAO(base);
                         homeLongitude = getBaseLongitudeICAO(base);
                     }
+                    if (setPerDiem() != 0.0) {
+                        perDiem = setPerDiem();
+                    } else {
+                        String nearestCity = nearestAirport(country);
+                        Toast.makeText(this.context, country + " " + nearestCity, Toast.LENGTH_SHORT).show();
+                        city = nearestCity;
+                        perDiem = db.getLodgingByCity(nearestCity);
 
-                    setPerDiem();
+                    }
                     if (l != null) {
 
                         String[] locationStringArray = new String[8];
@@ -367,4 +375,49 @@ public class GetLocation extends Service implements android.location.LocationLis
             return false;
         }
     }
-}
+
+    /**
+     * Get the nearest city based in the closest airport by coordinates
+     * @param country
+     * @return nearestCity (String)
+     */
+    public String nearestAirport(String country) {
+        String nearestCity = null;
+        AlarmReceiver aR = new AlarmReceiver();
+        Double distance = 0.0;
+        int lines;
+
+        Cursor cursor = db.getNearAirports(country);
+        if (cursor != null) {
+            cursor.moveToFirst();
+        } else {
+            Toast.makeText(this.context, "Cursor is null", Toast.LENGTH_SHORT).show();
+        }
+
+        lines = cursor.getCount();
+        Toast.makeText(this.context, "Lines = " + lines, Toast.LENGTH_SHORT).show();
+
+        for (int x = 0; lines >= x; x++) {
+
+            Double latitude = cursor.getDouble(cursor.getColumnIndex("AIRPORT_LATITUDE"));
+            Double longitude = cursor.getDouble(cursor.getColumnIndex("AIRPORT_LONGITUDE"));
+            Double d = aR.distance(latitude, longitude, currentLatitude, currentLongitude);
+
+            if (distance == 0.0) {
+                    distance = d;
+                    cursor.moveToNext();
+                    x++;
+            } else if (d > distance) {
+                    cursor.moveToNext();
+                    x++;
+                } else if (distance == 0.0 || d < distance) {
+                    distance = d;
+                    nearestCity = cursor.getString(cursor.getColumnIndex("AIRPORT_CITY"));
+                    cursor.moveToNext();
+                    x++;
+                } else {
+                }
+            }
+        return nearestCity;
+        }
+    }

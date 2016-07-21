@@ -1,6 +1,8 @@
 package com.airbooks;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -28,9 +30,18 @@ public class AlarmReceiver extends BroadcastReceiver {
     private LocationManager mLocationManager = null;
 
 // TODO : check device wakeUp https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html
-
+// REF: https://www.sitepoint.com/scheduling-background-tasks-android/
     @Override
     public void onReceive(Context context, Intent intent) {
+
+        /**
+         * To launch the application (open)
+         * http://stackoverflow.com/questions/3343432/how-do-i-programmatically-launch-a-specific-application-in-android
+         * REF:https://blog.alexwendland.com/2013/alarmmanager-broadcastreceivers-activities/
+         */
+//        Intent i = context.getPackageManager().getLaunchIntentForPackage("com.airbooks.GetLocation");
+//        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        context.startActivity(i);
 
 
         GetLocation gL = new GetLocation(context);
@@ -50,8 +61,8 @@ public class AlarmReceiver extends BroadcastReceiver {
             perDiem = Double.parseDouble(locationStringArray[7]);
         } else {
 
-//            Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-//            v.vibrate(new long[]{0, 500, 110, 500,}, -1);
+            Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(new long[]{0, 500, 110, 500,}, -1);
             Toast.makeText(context, "LocationStringArray at AlarmReceiver is empty", Toast.LENGTH_LONG).show();
         }
 
@@ -64,12 +75,14 @@ public class AlarmReceiver extends BroadcastReceiver {
         }
 
             if (isAtHomeArea == false) {
-                String location = country + " - " + state + " - " + city;
+                String location = country + " - "
+//                        + state + " - "
+                        + city;
                 tripRecorded = gL.recordTrip(location, perDiem);
 
-//                // Get instance of Vibrator from current Context
-//                Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-//                v.vibrate(new long[]{0, 500, 110, 500, 110, 450, 110, 200, 110, 170, 40, 450, 110, 200, 110, 170, 40, 500}, -1);
+                // Get instance of Vibrator from current Context
+                Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(new long[]{0, 500, 110, 500, 110, 450, 110, 200, 110, 170, 40, 450, 110, 200, 110, 170, 40, 500}, -1);
                 Toast.makeText(context, "Trip Saved!", Toast.LENGTH_LONG).show();
 
                 if (tripRecorded == true) {

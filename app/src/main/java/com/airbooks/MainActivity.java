@@ -175,8 +175,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void startAlarm() {
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-//        int interval = 86400000; // 24 h
-        int interval = 86400000; // 5 minutes
+        int interval = 86400000; // 24 h
+//        int interval = 300000; // 5 minutes
 
         /* Set the alarm to start at 11:59 PM */
         Calendar calendar = Calendar.getInstance();
@@ -236,5 +236,11 @@ public class MainActivity extends AppCompatActivity {
                             }
                         })
                 .show();
+    }
+
+    // prevent going back to registration
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
     }
 }
