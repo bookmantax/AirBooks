@@ -8,12 +8,12 @@
         "source": "C:\\Users\\Cristi\\Documents\\GitHub\\AirBooks\\app\\src\\main\\res\\layout\\activity_alarm_test.xml"
     },
     {
-        "merged": "C:\\Users\\Cristi\\Documents\\GitHub\\AirBooks\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_add_new_trip.xml",
-        "source": "C:\\Users\\Cristi\\Documents\\GitHub\\AirBooks\\app\\src\\main\\res\\layout\\activity_add_new_trip.xml"
-    },
-    {
         "merged": "C:\\Users\\Cristi\\Documents\\GitHub\\AirBooks\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_edit_user_info.xml",
         "source": "C:\\Users\\Cristi\\Documents\\GitHub\\AirBooks\\app\\src\\main\\res\\layout\\activity_edit_user_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\Cristi\\Documents\\GitHub\\AirBooks\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_add_new_trip.xml",
+        "source": "C:\\Users\\Cristi\\Documents\\GitHub\\AirBooks\\app\\src\\main\\res\\layout\\activity_add_new_trip.xml"
     },
     {
         "merged": "C:\\Users\\Cristi\\Documents\\GitHub\\AirBooks\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",

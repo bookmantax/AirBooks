@@ -4,59 +4,30 @@
     api-level="23"
     density="420dpi"
     format="7"
-    timestamp="98007316817288"
+    timestamp="194574359004067"
     token="-466573900188238560" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="5554" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="1895" />
     <task
         name="verifier"
-        duration="0" />
+        duration="375" />
 
-    <build timestamp="91557592407294" >
+    <artifact
+        location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
+
+    <build timestamp="194574359004067" >
         <artifact
             location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
-    <build
-        timestamp="95530574746754"
-        verifier="R_CLASS_CHANGE" >
-        <artifact
-            location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\res\resources-debug.ap_"
-            type="RESOURCES" />
-        <artifact
-            location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
-            type="DEX" />
-    </build>
-    <build timestamp="95583241549503" >
-        <artifact
-            location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
-            type="DEX" />
-    </build>
-    <build
-        timestamp="95961362538429"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\builds\debug\95961362538429\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="97843598510920"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\builds\debug\97843598510920\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build timestamp="98007316817288" />
 
 </instant-run>

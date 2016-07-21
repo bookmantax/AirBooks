@@ -14,6 +14,7 @@
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <!-- Permission for alarm to Wake up device -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <!-- Permission to start Alarm on device reboot -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <!-- Include required permissions for Google Maps API to run. -->
@@ -169,7 +170,6 @@
         </activity>
 
         <!-- Register the Alarm Receiver -->
-
         <receiver android:name="com.airbooks.AlarmReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />

@@ -1,7 +1,9 @@
 package com.airbooks;
 
+import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Criteria;
@@ -10,7 +12,9 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -31,17 +35,20 @@ public class GetLocation extends Service implements android.location.LocationLis
     Context context;
     Location mLastLocation;
 
-    public GetLocation(Context context) {
+    public  GetLocation(Context context) {
         String provider = getProviderName();
         this.context = context;
         db = new DatabaseHelper(this.context);
         mLastLocation = new Location(provider);
-    }
+        GetLocation();
+            }
 
-    public GetLocation() {
+    public int GetLocation() {
         String provider = getProviderName();
-
+        db = new DatabaseHelper(this.context);
         mLastLocation = new Location(provider);
+        db = new DatabaseHelper(this.context);
+        return START_STICKY;
     }
 
     @Override
@@ -106,6 +113,15 @@ public class GetLocation extends Service implements android.location.LocationLis
         }
     }
 
+    /**
+     * Stop using GPS listener
+     * Calling this function will stop using GPS in our app.
+     * */
+    public void stopUsingGPS() {
+        if (mLocationManager != null) {
+            mLocationManager.removeUpdates(GetLocation.this);
+        }
+    }
 
     private Location getLastKnownLocation() {
         List<String> providers = mLocationManager.getProviders(true);
@@ -124,58 +140,21 @@ public class GetLocation extends Service implements android.location.LocationLis
         return bestLocation;
     }
 
-
-//    public boolean checkLocationService() {
-//        mLocationManager = (LocationManager) this.context.getSystemService(Context.LOCATION_SERVICE);
-//        boolean gps_enabled = false;
-//        boolean network_enabled = false;
-//
-//        try {
-//            gps_enabled = mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-//        } catch (Exception ex) {
-//        }
-//
-//        try {
-//            network_enabled = mLocationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-//        } catch (Exception ex) {
-//        }
-//        if (!gps_enabled) {
-//            GPSManager gps = new GPSManager(this);
-//            // check GPS active
-//            if (!gps.canGetLocation()) {gps.showSettingsAlert();}
-//        }else if(!network_enabled)
-//            Toast.makeText(this.context,"Please turn on your Internet Connection",Toast.LENGTH_SHORT).show();
-//        else
-//            return true;
-//
-//        return false;
-//    }
-
-//    public LocationListener[] mLocationListeners = new LocationListener[]{
-//            new GetLocation(LocationManager.GPS_PROVIDER),
-//            new GetLocation(LocationManager.NETWORK_PROVIDER);
-
     public String[] whereAmI(Context context) {
 
+        String provider = null;
         if (Passvalues.isLocationAvailable) {
             String currentLocation = null;
             if (this.context == null)
                 this.context = context;
 
-            //Sets the criteria for a fine and low power provider
-            //        Criteria criteria = new Criteria();
-            //        criteria.setAccuracy(Criteria.ACCURACY_FINE);
-            //        criteria.setPowerRequirement(Criteria.POWER_LOW);
-            // Gets the best matched provider, and only if it's on
             String bestProvider = getProviderName();
             if (bestProvider != null) {
                 try {
                     mLocationManager.requestLocationUpdates(bestProvider, LOCATION_INTERVAL, LOCATION_DISTANCE,
                             this);
 
-                    //Location l = mLocationManager.getLastKnownLocation(bestProvider);
                     Location l = getLastKnownLocation();
-
 
                     currentLatitude = l.getLatitude();
                     currentLongitude = l.getLongitude();
@@ -208,20 +187,18 @@ public class GetLocation extends Service implements android.location.LocationLis
 
                         return locationStringArray;
 
-//                        String location = country + " - " + state + " - " + city
-//                                + " " + sDate.toString() + " " + String.valueOf(finalMeals);
-//                        return location;
                     }
                 } catch (java.lang.SecurityException ex) {
                 } catch (IllegalArgumentException ex) {
 
                 }
             } else {
-                Toast.makeText(this.context, "Please turn on your location", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this.context, "Please turn on your GPS", Toast.LENGTH_SHORT).show();
             }
-            return null;
-        } else
-            return null;
+            GetLocation();
+            whereAmI(context);
+        }
+        return null;
 
     }
 

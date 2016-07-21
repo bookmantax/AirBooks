@@ -1,6 +1,7 @@
 /*
  * First Class Tax app
  * Main activity class, used as the main menu of the application.
+ * TODO: Fix RTC_WAKEUP not working http://stackoverflow.com/questions/4660823/android-alarm-not-working
  */
 package com.airbooks;
 
@@ -174,7 +175,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void startAlarm() {
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        int interval = 86400000; // 24 h
+//        int interval = 86400000; // 24 h
+        int interval = 86400000; // 5 minutes
 
         /* Set the alarm to start at 11:59 PM */
         Calendar calendar = Calendar.getInstance();

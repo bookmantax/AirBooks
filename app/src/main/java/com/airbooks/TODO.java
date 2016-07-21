@@ -32,5 +32,8 @@ public class TODO {
      * TODO : Delete Plantation line in PerDiem raw file (created for test purposes)
      */
 
+    /**
+     * TODO: https://blogmobile.itude.com/2012/02/20/automatically-starting-an-android-application-on-boot/
+     */
 
 }
