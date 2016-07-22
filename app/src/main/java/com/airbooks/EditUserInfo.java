@@ -101,7 +101,7 @@ public class EditUserInfo extends AppCompatActivity implements View.OnClickListe
                                 edit_Phone_EditText});
                         if (fieldsOK == true) {
 
-                            boolean isInserted = db.insertData(
+                            boolean isInserted = db.updateData(
                                     edit_Name_EditText.getText().toString(),
                                     edit_Address_EditText.getText().toString(),
                                     edit_Employer_EditText.getText().toString(),

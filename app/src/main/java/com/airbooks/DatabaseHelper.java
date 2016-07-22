@@ -255,9 +255,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     /*
-     * Add data to the DataBase
-     */
+ * Add data to the DataBase
+ */
     public boolean insertData(String name, String address, String airline, String base, String email, String phone) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(NAME, name);
+        contentValues.put(ADDRESS, address);
+        contentValues.put(AIRLINE, airline);
+        contentValues.put(BASE, base);
+        contentValues.put(EMAIL, email);
+        contentValues.put(PHONE, phone);
+        // to check if data was inserted
+        long result = db.insert(USER_TABLE_NAME, null, contentValues);
+        return result != -1;
+    } // end of insertData
+    /*
+     * update data to the DataBase
+     */
+    public boolean updateData(String name, String address, String airline, String base, String email, String phone) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("Select _ID from " + USER_TABLE_NAME
                 + " where _ID = '1'", null);
@@ -277,7 +293,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return result != -1;
         }
         return false;
-    } // end of insertData
+    } // end of updatetData
 
     /*
     * Add trip to the Database
