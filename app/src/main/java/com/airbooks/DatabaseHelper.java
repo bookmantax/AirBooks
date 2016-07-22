@@ -259,16 +259,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
      */
     public boolean insertData(String name, String address, String airline, String base, String email, String phone) {
         SQLiteDatabase db = this.getReadableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(NAME, name);
-        contentValues.put(ADDRESS, address);
-        contentValues.put(AIRLINE, airline);
-        contentValues.put(BASE, base);
-        contentValues.put(EMAIL, email);
-        contentValues.put(PHONE, phone);
-        // to check if data was inserted
-        long result = db.insert(USER_TABLE_NAME, null, contentValues);
-        return result != -1;
+        Cursor cursor = db.rawQuery("Select _ID from " + USER_TABLE_NAME
+                + " where _ID = '1'", null);
+        if(cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            int id = cursor.getInt(cursor.getColumnIndex("_ID"));
+            String[] args = {String.valueOf(id)};
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(NAME, name);
+            contentValues.put(ADDRESS, address);
+            contentValues.put(AIRLINE, airline);
+            contentValues.put(BASE, base);
+            contentValues.put(EMAIL, email);
+            contentValues.put(PHONE, phone);
+            // to check if data was updated
+            long result = db.update(USER_TABLE_NAME, contentValues, "_ID=?", args);
+            return result != -1;
+        }
+        return false;
     } // end of insertData
 
     /*

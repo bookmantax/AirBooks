@@ -1,5 +1,5 @@
 /*
- * First Class Tax app
+ * AirBooks app
  * Main activity class, used as the main menu of the application.
  */
 package com.airbooks;

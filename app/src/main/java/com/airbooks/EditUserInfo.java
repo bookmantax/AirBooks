@@ -159,43 +159,6 @@ public class EditUserInfo extends AppCompatActivity implements View.OnClickListe
                 }
         );
     }
-/*
-    // Options menu to shout about info
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(Menu.NONE, ABOUT, Menu.NONE, "About")
-                .setIcon(R.drawable.add)
-                .setAlphabeticShortcut('a');
-        return (super.onCreateOptionsMenu(menu));
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case ABOUT:
-                add();
-                return (true);
-        }
-
-        return (super.onOptionsItemSelected(item));
-    }
-
-    private void add() {
-        LayoutInflater inflater = LayoutInflater.from(this);
-        View addView = inflater.inflate(R.layout.about, null);
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.about)
-                .setView(addView)
-                .setNegativeButton(R.string.close,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog,
-                                                int whichButton) {
-                                // ignore, just dismiss
-                            }
-                        })
-                .show();
-    }
-*/
 }
 
 

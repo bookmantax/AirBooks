@@ -47,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+
 
         OnClickButtonListenerCurrentTrip();
         OnClickButtonListenerViewTripHistory();
@@ -176,22 +175,18 @@ public class MainActivity extends AppCompatActivity {
     public void startAlarm() {
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         int interval = 86400000; // 24 h
-//        int interval = 300000; // 5 minutes
 
-        /* Set the alarm to start at 11:59 PM */
+
+        /* Set the alarm to start at 11:58 PM */
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 23);
-        calendar.set(Calendar.MINUTE, 55);
+        calendar.set(Calendar.MINUTE, 58);
         calendar.set(Calendar.SECOND, 00);
         manager.set(AlarmManager.ELAPSED_REALTIME,calendar.getTimeInMillis(),pendingIntent);
 
         /* Repeating on every 24 hours interval */
         manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), interval, pendingIntent);
-
-//        Calendar calendar2 = Calendar.getInstance();
-//        calendar2.setTimeInMillis(calendar.getTimeInMillis() + 86400000);
-//        Toast.makeText(this, "Alarm Set at " + calendar2.getTime(), Toast.LENGTH_LONG).show();
     }
 
 

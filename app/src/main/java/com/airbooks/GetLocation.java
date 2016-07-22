@@ -42,7 +42,7 @@ public class GetLocation extends Service implements android.location.LocationLis
         db = new DatabaseHelper(this.context);
         mLastLocation = new Location(provider);
         GetLocation();
-            }
+    }
 
     public int GetLocation() {
         String provider = getProviderName();
@@ -176,7 +176,7 @@ public class GetLocation extends Service implements android.location.LocationLis
                         perDiem = setPerDiem();
                     } else {
                         String nearestCity = nearestAirport(country);
-                        Toast.makeText(this.context, country + " " + nearestCity, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(this.context, country + " " + nearestCity, Toast.LENGTH_SHORT).show();
                         city = nearestCity;
                         perDiem = db.getLodgingByCity(nearestCity);
 
@@ -395,7 +395,7 @@ public class GetLocation extends Service implements android.location.LocationLis
         }
 
         lines = cursor.getCount();
-        Toast.makeText(this.context, "Lines = " + lines, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this.context, "Lines = " + lines, Toast.LENGTH_SHORT).show();
 
         for (int x = 0; lines >= x; x++) {
 
@@ -404,20 +404,20 @@ public class GetLocation extends Service implements android.location.LocationLis
             Double d = aR.distance(latitude, longitude, currentLatitude, currentLongitude);
 
             if (distance == 0.0) {
-                    distance = d;
-                    cursor.moveToNext();
-                    x++;
+                distance = d;
+                cursor.moveToNext();
+                x++;
             } else if (d > distance) {
-                    cursor.moveToNext();
-                    x++;
-                } else if (distance == 0.0 || d < distance) {
-                    distance = d;
-                    nearestCity = cursor.getString(cursor.getColumnIndex("AIRPORT_CITY"));
-                    cursor.moveToNext();
-                    x++;
-                } else {
-                }
+                cursor.moveToNext();
+                x++;
+            } else if (distance == 0.0 || d < distance) {
+                distance = d;
+                nearestCity = cursor.getString(cursor.getColumnIndex("AIRPORT_CITY"));
+                cursor.moveToNext();
+                x++;
+            } else {
             }
-        return nearestCity;
         }
+        return nearestCity;
     }
+}
