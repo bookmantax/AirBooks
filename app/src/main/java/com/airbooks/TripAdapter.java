@@ -1,3 +1,10 @@
+/**
+ * AirBooks app
+ * TripAdapter class :
+ * Adapter for displaying all the database stored trips information to be displayed via inflater
+ * at ViewTripHistory.java
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
 import android.app.Activity;
@@ -30,9 +37,6 @@ public class TripAdapter extends ArrayAdapter<TripItem> {
 
         //View row = convertView;
         final PersonHolder holder = new PersonHolder();
-
-        //LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-        //row = inflater.inflate(layoutResourceId, parent, false);
 
         holder.txtLocation = (TextView) row.findViewById(R.id.locationText);
         holder.txtDates = (TextView) row.findViewById(R.id.datesText);

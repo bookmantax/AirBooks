@@ -1,3 +1,9 @@
+/**
+ * AirBooks app
+ * GPSManager class :
+ * This class manage all the GeoLocation listeners for the app functions to obtain the current location
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
 import android.app.AlertDialog;
@@ -22,7 +28,7 @@ public class GPSManager extends Service implements LocationListener {
     boolean isGPSEnabled = false;
     // flag for network status
     boolean isNetworkEnabled = false;
-    // flag for GPS status
+
     boolean canGetLocation = false;
     Location location; // location
     double latitude; // currentLatitude
@@ -194,5 +200,4 @@ public class GPSManager extends Service implements LocationListener {
     public IBinder onBind(Intent arg0) {
         return null;
     }
-
 }

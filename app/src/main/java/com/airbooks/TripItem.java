@@ -1,3 +1,9 @@
+/**
+ * AirBooks app
+ * TripItem class :
+ * Help to manage a trip information.
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
 public class TripItem {

@@ -1,3 +1,12 @@
+/**
+ * AirBooks app
+ * MyLocationManager class :
+ * This class obtain the current location coordinates,
+ * City, State, Country based in current location
+ * Total per diem for current location.
+ * NOTE: Some parts of the code are commented out, leaved for further development.
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
 import android.app.Activity;
@@ -11,15 +20,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Class created by Rodrigo Escobar to display the current location coordinates,
- * City, State, Country based in current location
- * Total per diem for current location
- * TODO: Want to move it to CurrentTrip Layout to display the status of the current trip and landing date.
- */
-
 public class MyLocationManager extends Activity {
-
 
     protected Context context;
     DatabaseHelper db = new DatabaseHelper(this);
@@ -37,9 +38,8 @@ public class MyLocationManager extends Activity {
         txtState = (TextView) findViewById(R.id.state_tv);
         txtCity = (TextView) findViewById(R.id.city_tv);
         txtPerDiem = (TextView) findViewById(R.id.perDiem_tv);
-//        txtMeals = (TextView) findViewById(R.id.meals_tv); // TODO: Leaved for future usage
-//        txtLodging = (TextView) findViewById(R.id.lodging_tv); // TODO: Leaved for future usage
-
+//        txtMeals = (TextView) findViewById(R.id.meals_tv); // Leaved for future usage
+//        txtLodging = (TextView) findViewById(R.id.lodging_tv); // Leaved for future usage
 
         GPSManager gps = new GPSManager(this);
         // check GPS active
@@ -50,14 +50,14 @@ public class MyLocationManager extends Activity {
             country = country(gps.getLatitude(), gps.getLongitude());
             state = state(gps.getLatitude(), gps.getLongitude());
             city = city(gps.getLatitude(), gps.getLongitude());
-//            perDiem = setPerDiem(); // TODO: Leaved for future usage
+//            perDiem = setPerDiem(); // Leaved for future usage
             perDiem = finalMeals.intValue();
             finalMeals = setMeals();
             finalLodging = setLodging();
-            Passvalues.isLocationAvailable = false;
+            PassValues.isLocationAvailable = false;
         }
         else{
-            Passvalues.isLocationAvailable = false;
+            PassValues.isLocationAvailable = false;
             gps.showSettingsAlert();
         }
         txtLat.setText(lat + longitude);
@@ -65,8 +65,8 @@ public class MyLocationManager extends Activity {
         txtState.setText(state);
         txtCity.setText(city);
         txtPerDiem.setText("$ " + perDiem);
-//        txtMeals.setText(" US $ " + String.valueOf(finalMeals)); // TODO: Leaved for future usage
-//        txtLodging.setText(" US $ " + String.valueOf(finalLodging)); // TODO: Leaved for future usage
+//        txtMeals.setText(" US $ " + String.valueOf(finalMeals)); // Leaved for future usage
+//        txtLodging.setText(" US $ " + String.valueOf(finalLodging)); // Leaved for future usage
     }
 
     public String country(Double lat, Double lon) {
@@ -109,7 +109,7 @@ public class MyLocationManager extends Activity {
     ///// Setters /////
     /**
     * Set Per Diem Value Based in Location
-    * // TODO: Leaved for future usage
+    * Leaved for future usage
     * @return
     */
     public int setPerDiem() {

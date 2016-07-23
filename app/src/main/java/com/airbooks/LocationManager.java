@@ -1,3 +1,10 @@
+/**
+ * AirBooks app
+ * LocationManager class :
+ * This class get the current location and display all the available data that corresponds to that location.
+ * NOTE: Some parts of the code are commented out, leaved for further development.
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
 import android.app.Activity;
@@ -45,7 +52,6 @@ public class LocationManager extends Activity {
 //        txtMeals = (TextView) findViewById(R.id.meals_tv); // Leaved for possible future usage
 //        txtLodging = (TextView) findViewById(R.id.lodging_tv); // Leaved for possible future usage
 
-
         GPSManager gps = new GPSManager(this);
         // check GPS active
         if (gps.canGetLocation()) {
@@ -59,7 +65,6 @@ public class LocationManager extends Activity {
             perDiem = setMeals();
 //            finalMeals = setMeals(); // Leaved for possible future usage
 //            finalLodging = setLodging(); // Leaved for possible future usage
-
         }
         else{
             gps.showSettingsAlert();
@@ -193,7 +198,6 @@ public class LocationManager extends Activity {
 //        return 0;
 //    }
 
-
     public Double getMealsCountry() {
         meals = db.getMealsByCountry(country);
         if (meals != 0.0) {
@@ -239,7 +243,6 @@ public class LocationManager extends Activity {
         }
         return 0.0;
     }
-
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Options menu to shout about info

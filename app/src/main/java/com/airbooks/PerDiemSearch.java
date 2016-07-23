@@ -1,6 +1,9 @@
-/*
- * First Class Tax app
- * Main activity class, used as the main menu of the application.
+/**
+ * AirBooks app
+ * PerDiemSearch class :
+ * This class allow the user to search the perDiem amount of the city entered by the user for search.
+ * NOTE: Some parts of the code are commented out, leaved for further development.
+ * Created by Rodrigo Escobar in July 2016
  */
 package com.airbooks;
 
@@ -26,7 +29,6 @@ import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 
 public class PerDiemSearch extends AppCompatActivity implements View.OnClickListener{
-
 
     int PLACE_AUTOCOMPLETE_REQUEST_CODE = 1;
     public static final String TAG = PerDiemSearch.class.getSimpleName();
@@ -58,9 +60,8 @@ public class PerDiemSearch extends AppCompatActivity implements View.OnClickList
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
-                // TODO: Get info about the selected place.
                 Log.i(TAG, "Place: " + place.getName());//get place details here
-//                int perDiem = db.getPerDiemByCity(place.getName().toString()); // TODO: Leaved for future usage
+//                int perDiem = db.getPerDiemByCity(place.getName().toString()); // Leaved for future usage
                 int perDiem = db.getMealsByCity(place.getName().toString()).intValue();
                 if(perDiem > 0) {
                     perDiemAmount.setText("$" + String.valueOf(perDiem));
@@ -78,18 +79,16 @@ public class PerDiemSearch extends AppCompatActivity implements View.OnClickList
         });
     }
 
-
     private void callPlaceAutocompleteActivityIntent() {
         try {
             Intent intent =
                     new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_FULLSCREEN)
                             .build(this);
             startActivityForResult(intent, PLACE_AUTOCOMPLETE_REQUEST_CODE);
-//PLACE_AUTOCOMPLETE_REQUEST_CODE is integer for request code
+        //PLACE_AUTOCOMPLETE_REQUEST_CODE is integer for request code
         } catch (GooglePlayServicesRepairableException | GooglePlayServicesNotAvailableException e) {
             // TODO: Handle the error.
         }
-
     }
 
     @Override
@@ -109,10 +108,8 @@ public class PerDiemSearch extends AppCompatActivity implements View.OnClickList
         }
     }
 
-
     @Override
     public void onClick(View v) {
-
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////

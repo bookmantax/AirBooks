@@ -1,6 +1,8 @@
-/*
- * First Class Tax app
- * Main activity class, used as the main menu of the application.
+/**
+ * AirBooks app
+ * DepartingDate class :
+ * This class handles the date picker used for Departing in AddNewTrip.java
+ * Created by Rodrigo Escobar in July 2016
  */
 package com.airbooks;
 

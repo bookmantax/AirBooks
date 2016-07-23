@@ -1,3 +1,14 @@
+/**
+ * AirBooks app
+ * AlarmReceiver class :
+ * This class receives the system broadcast when the alarm goes off at 23:55.
+ * Will request the current location from GetLocation by the whereAmI method.
+ * if location is null will open the app by itself to obtain the location.
+ * It also calculate the distance between the home airport and current location,
+ * same distance calculation is used to find the nearest airport.
+ * NOTE: Some parts of the code are commented out, leaved for further development
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
 import android.app.Activity;
@@ -13,9 +24,6 @@ import android.widget.Toast;
 
 import static android.support.v4.content.WakefulBroadcastReceiver.startWakefulService;
 
-/**
- * Created by unlimited_power on 7/6/16.
- */
 public class AlarmReceiver extends BroadcastReceiver {
 
     // Variables
@@ -26,8 +34,6 @@ public class AlarmReceiver extends BroadcastReceiver {
     String country, state, city;
     boolean tripRecorded = false;
     private LocationManager mLocationManager = null;
-
-// TODO : check device wakeUp https://developer.android.com/reference/android/support/v4/content/WakefulBroadcastReceiver.html
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -46,7 +52,6 @@ public class AlarmReceiver extends BroadcastReceiver {
             state = locationStringArray[5];
             city = locationStringArray[6];
             perDiem = Double.parseDouble(locationStringArray[7]);
-
 
             // if array is not null
             distance = distance(homeLatitude, homeLongitude, currentLatitude, currentLongitude);
@@ -78,14 +83,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
                 mA.startAlarm();
             }
-
         } else {
-            /**
-             * To launch the application (open)
-             * http://stackoverflow.com/questions/3343432/how-do-i-programmatically-launch-a-specific-application-in-android
-             * REF:https://blog.alexwendland.com/2013/alarmmanager-broadcastreceivers-activities/
-             * https://developer.android.com/reference/android/content/Intent.html
-             */
             Intent i = context.getPackageManager().getLaunchIntentForPackage("com.airbooks");
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             i.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -93,8 +91,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         }
     }
 
-
-    // Haversine Formula: http://www.movable-type.co.uk/scripts/latlong.html
+    // Haversine Formula to calculate distance between two locations by coordinates.
     public double distance(double homeLat, double homeLong, double currentLat, double currentLong){
 
         int R = 6371; // km
@@ -107,11 +104,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
         return R * c;
     }
-
     public double toRadians(Double deg) {
         return deg * (Math.PI/180);
     }
-
-
-
 }

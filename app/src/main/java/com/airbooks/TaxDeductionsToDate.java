@@ -1,6 +1,8 @@
-/*
- * First Class Tax app
- * Main activity class, used as the main menu of the application.
+/**
+ * AirBooks app
+ * TaxDeductionsToDate class :
+ * Used to query the database and add the perDiem Values stored for the trips, displays the total accumulated.
+ * Created by Rodrigo Escobar in July 2016
  */
 package com.airbooks;
 

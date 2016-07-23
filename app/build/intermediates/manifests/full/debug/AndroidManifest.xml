@@ -54,16 +54,7 @@
             </intent-filter>
         </activity>
         // New Activity Current Trip
-        <activity
-            android:name="com.airbooks.CurrentTrip"
-            android:label="@string/current_Trip"
-            android:theme="@style/AppTheme" >
-            <intent-filter>
-                <action android:name="com.airbooks.CurrentTrip" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         // New Activity Trip History
         <activity
             android:name="com.airbooks.ViewTripHistory"

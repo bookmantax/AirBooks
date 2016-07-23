@@ -1,3 +1,9 @@
+/**
+ * AirBooks app
+ * DateDialog class :
+ * This class handles the date picker used in AddNewTrip.java
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
 import android.app.DatePickerDialog;
@@ -20,7 +26,6 @@ public class DateDialog extends DialogFragment implements DatePickerDialog.OnDat
         txtDate = (EditText) view;
     }
 
-
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
@@ -34,7 +39,4 @@ public class DateDialog extends DialogFragment implements DatePickerDialog.OnDat
         String date = ((month + 1) + "/" + day + "/" + year);
         txtDate.setText(date);
     }
-    
-
-
 }

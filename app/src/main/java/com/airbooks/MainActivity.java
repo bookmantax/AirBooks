@@ -1,7 +1,11 @@
-/*
- * First Class Tax app
- * Main activity class, used as the main menu of the application.
- * TODO: Fix RTC_WAKEUP not working http://stackoverflow.com/questions/4660823/android-alarm-not-working
+/**
+ * AirBooks app
+ * MainActivity class :
+ * Used as the main menu of the application.
+ * It also set the alarm and alarm interval at 11:55 every day in order for the application to
+ * check the location.
+ * NOTE: Some parts of the code are commented out, leaved for further development
+ * Created by Rodrigo Escobar in July 2016
  */
 package com.airbooks;
 
@@ -19,7 +23,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         GPSManager gps = new GPSManager(this);
         // check GPS active
         if (gps.canGetLocation()) {
-            Passvalues.isLocationAvailable = true;
+            PassValues.isLocationAvailable = true;
         }
         else{
             gps.showSettingsAlert();
@@ -83,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent("com.airbooks.CurrentTrip");
+                        Intent intent = new Intent("com.airbooks.MyLocationManager");
                         startActivity(intent);
                     }
                 }
@@ -177,11 +180,11 @@ public class MainActivity extends AppCompatActivity {
         int interval = 86400000; // 24 h
 
 
-        /* Set the alarm to start at 11:58 PM */
+        /* Set the alarm to start at 11:55 PM */
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, 23);
-        calendar.set(Calendar.MINUTE, 58);
+        calendar.set(Calendar.MINUTE, 55);
         calendar.set(Calendar.SECOND, 00);
         manager.set(AlarmManager.ELAPSED_REALTIME,calendar.getTimeInMillis(),pendingIntent);
 

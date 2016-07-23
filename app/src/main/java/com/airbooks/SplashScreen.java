@@ -1,3 +1,14 @@
+/**
+ * AirBooks app
+ * SplashScreen class :
+ * Used for branding.
+ * It also check if the UserInfo Table from the database is empty or not to decide if
+ * displays the AddUser or the MainActivity.
+ * It also verify the Airports and perDiem tables are empty or not, if they are empty will invoke the corresponding
+ * methods from the DatabaseHelper class to fill them with the information stored in the
+ * Comma Separated Values (CSV) files located inside the raw folder.
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
 import android.app.Activity;
@@ -73,9 +84,6 @@ public class SplashScreen extends Activity {
         } else {
             // ignore
         }
-
-//        // Set Alarm for 11:59 pm to check location
-//        alarmHandler.setScheduledAlarm();
     }
 
     @Override
@@ -84,5 +92,4 @@ public class SplashScreen extends Activity {
         super.onPause();
         finish();
     }
-
 }

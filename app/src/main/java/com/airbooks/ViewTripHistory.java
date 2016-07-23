@@ -1,6 +1,10 @@
-/*
+/**
  * AirBooks app
- * Main activity class, used as the main menu of the application.
+ * ViewTripHistory class :
+ * Used to display all the trips stored into the database and the information for each trip
+ * It also contains a floating action button to call the AddNewTrip to allow the user to enter a
+ * trip manually.
+ * Created by Rodrigo Escobar in July 2016
  */
 package com.airbooks;
 
@@ -8,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -33,6 +38,17 @@ public class ViewTripHistory extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_trip_history);
+
+        // Floating Action Button Click Listener
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Click action
+                Intent intent = new Intent(ViewTripHistory.this, AddNewTrip.class);
+                startActivity(intent);
+            }
+        });
 
         list = (ListView)findViewById(R.id.tripListView);
         trips = new ArrayList<>();
@@ -63,9 +79,7 @@ public class ViewTripHistory extends AppCompatActivity implements View.OnClickLi
         TripAdapter adapter = new TripAdapter(ViewTripHistory.this,
                 R.layout.trip_item, tripsReversed);
         list.setAdapter(adapter);
-
     }
-
 
     @Override
     public void onClick(View v) {

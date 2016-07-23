@@ -13,7 +13,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Current Trip"
+        android:text="Current Location"
         android:id="@+id/main_Menu_Current_Trip_Btn"
         android:textSize="25dp"
         android:layout_below="@+id/imageView"

@@ -12,11 +12,16 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- *
+ * /**
+ * AirBooks app
+ * DatabaseHelper class :
  * Extends SQLiteOpenHelper
  *
- * This class will create the database with one table and handle all the database interactions
+ * This class will create the database with 4 tables and handle all the database interactions
  * requested from all other clases.
+ *
+ * Reads a coma separated values (CSV) files located in the raw folder and transfer the information into the respective
+ * tables ( Airports and PerDiem).
  *
  * Airports Database Table contains 6977 airports spanning the globe, as shown in the map above. Each entry contains the following information:
  * Airport ID	Unique OpenFlights identifier for this airport.
@@ -32,12 +37,16 @@ import java.io.InputStreamReader;
  * Longitude	Decimal degrees, usually to six significant digits. Negative is West, positive is East.
  * Altitude	In feet.
  * Timezone	Hours offset from UTC. Fractional hours are expressed as decimals, eg. India is 5.5.
- * DST	Daylight savings time. One of E (Europe), A (US/Canada), S (South America), O (Australia), Z (New Zealand), N (None) or U (Unknown). See also: Help: Time
+ * DST	Daylight savings time. One of E (Europe), A (US/Canada), S (South America), O (Australia), Z (New Zealand), N (None) or U (Unknown).
  * Tz database time zone	Timezone in "tz" (Olson) format, eg. "America/Los_Angeles".
  * The data is ISO 8859-1 (Latin-1) encoded, with no special characters.
- * Note: Rules for daylight savings time change from year to year and from country to country. The current data is an approximation for 2009, built on a country level. Most airports in DST-less regions in countries that generally observe DST (eg. AL, HI in the USA, NT, QL in Australia, parts of Canada) are marked incorrectly.
+ * Note:
+ * - Rules for daylight savings time change from year to year and from country to country. The current data is an approximation for 2009, built on a country level. Most airports in DST-less regions in countries that generally observe DST (eg. AL, HI in the USA, NT, QL in Australia, parts of Canada) are marked incorrectly.
  * Sample entries
  * 507,"Heathrow","London","United Kingdom","LHR","EGLL",51.4775,-0.461389,83,0,"E","Europe/London"
+ *
+ * - Some parts of the code are commented out, leaved for further development
+ * Created by Rodrigo Escobar in July 2016
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -153,15 +162,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // DB Constructor
     DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-//        SQLiteDatabase db = this.getReadableDatabase();
     }
 
-    /*
+        /**
          * Add Airport values to Airports Table
          */
 
     public String fillAirportsTable(Context ctx, int resId) {
-
 
         InputStream inputStream = ctx.getResources().openRawResource(resId);
 
@@ -200,7 +207,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return stringBuilder.toString();
     }
 
-    /*
+    /**
      * Add Per Diem Values to per Diem table
      */
     public String fillPerDiemTable(Context ctx, int resId) {
@@ -254,9 +261,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    /*
- * Add data to the DataBase
- */
+    /**
+     * Add data to the DataBase
+     */
     public boolean insertData(String name, String address, String airline, String base, String email, String phone) {
         SQLiteDatabase db = this.getReadableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -270,7 +277,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long result = db.insert(USER_TABLE_NAME, null, contentValues);
         return result != -1;
     } // end of insertData
-    /*
+
+    /**
      * update data to the DataBase
      */
     public boolean updateData(String name, String address, String airline, String base, String email, String phone) {
@@ -295,7 +303,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return false;
     } // end of updatetData
 
-    /*
+    /**
     * Add trip to the Database
     */
     public boolean insertTrip(String location, String dateIn, String dateOut, String perDiem){
@@ -310,7 +318,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    /*
+    /**
      * Pulls all data from the DataBase table. and assign it to the variable result
      */
     public Cursor getAllData() {
@@ -328,9 +336,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     } // End of getAllData
 
-    /*
-        * Check if a table is empty and return a int
-        */
+    /**
+     * Check if a table is empty and return a int
+     */
     public boolean isEmpty(String table) {
         SQLiteDatabase db = this.getWritableDatabase();
         String count = "SELECT count(*) FROM " + table;
@@ -344,7 +352,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    /*
+    /**
     * Check if a table is empty and return a int
     */
     public boolean isTripsEmpty() {
@@ -368,7 +376,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    /*
+    /**
      * Search methods used by specific reference
      */
     public double allPerDiem() {
@@ -551,5 +559,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return null;
     }
-
 }

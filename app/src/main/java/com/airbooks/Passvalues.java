@@ -1,8 +1,11 @@
+/**
+ * AirBooks app
+ * PassValues class :
+ * This class pass the bollean value "false" when Location is not available from GetLocation.java
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
-/**
- * Created by Usman on 11/07/2016.
- */
-public class Passvalues {
+public class PassValues {
     public static boolean isLocationAvailable = false;
 }

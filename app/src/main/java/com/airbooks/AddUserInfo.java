@@ -1,6 +1,11 @@
-/*
- * First Class Tax app
- * Main activity class, used as the main menu of the application.
+/**
+ * AirBooks app
+ * AddUserInfo class :
+ * This class allow the user to register the home airport, which is very important
+ * for the app functionality.
+ * Will display only at the first launch or until the user enters the require code.
+ * NOTE: Some parts of the code are commented out, leaved for further development
+ * Created by Rodrigo Escobar in July 2016
  */
 package com.airbooks;
 
@@ -22,7 +27,6 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class AddUserInfo extends AppCompatActivity implements View.OnClickListener{
 
-
     // Variables
     private static Button button_sbm;
     DatabaseHelper db = new DatabaseHelper(this);
@@ -33,7 +37,6 @@ public class AddUserInfo extends AppCompatActivity implements View.OnClickListen
     String cityName;
     PlaceAutocompleteFragment autocompleteFragment;
     public static final String TAG = PerDiemSearch.class.getSimpleName();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +88,6 @@ public class AddUserInfo extends AppCompatActivity implements View.OnClickListen
 
     } // END OnCreate
 
-
     @Override
     public void onClick(View v) {
     }
@@ -100,8 +102,6 @@ public class AddUserInfo extends AppCompatActivity implements View.OnClickListen
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
-
                         // Call of the method Validate to check if EditText are empty
 //                        boolean fieldsOK = validate(new String[]{
                         boolean fieldsOK = validate(new EditText[]{
@@ -173,44 +173,6 @@ public class AddUserInfo extends AppCompatActivity implements View.OnClickListen
         }
         return true;
     }
-
-/*
-    // Options menu to shout about info
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(Menu.NONE, ABOUT, Menu.NONE, "About")
-                .setIcon(R.drawable.add)
-                .setAlphabeticShortcut('a');
-        return (super.onCreateOptionsMenu(menu));
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case ABOUT:
-                add();
-                return (true);
-        }
-
-        return (super.onOptionsItemSelected(item));
-    }
-
-    private void add() {
-        LayoutInflater inflater = LayoutInflater.from(this);
-        View addView = inflater.inflate(R.layout.about, null);
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.about)
-                .setView(addView)
-                .setNegativeButton(R.string.close,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog,
-                                                int whichButton) {
-                                // ignore, just dismiss
-                            }
-                        })
-                .show();
-    }
-*/
 }
 
 

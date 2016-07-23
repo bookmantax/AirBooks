@@ -18,4 +18,6 @@
     <dimen name="Text.EmptyState">20sp</dimen>
     <!-- Dividers -->
     <dimen name="Divider.Width">1dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines for FAB. -->
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

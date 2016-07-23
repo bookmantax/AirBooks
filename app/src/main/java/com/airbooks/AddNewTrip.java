@@ -1,8 +1,17 @@
+/**
+ * AirBooks app
+ * AddNewTrip class :
+ * This class allow the user to save a trip manually in case the app didn't record it
+ * due to several factors, like cell off, airplane mode, no gps, cell, wi-fi signal etc.
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -25,21 +34,18 @@ import com.google.android.gms.maps.model.LatLng;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
-/**
- * This class allow the user to save a trip manually in case the app didn't record it
- * due to several factors, like cell off, airplane mode, no gps, cell, wi-fi signal etc
- */
+import java.util.List;
+import java.util.Locale;
 
 public class AddNewTrip extends AppCompatActivity {
 
     //Variables
     private static Button button_sbm;
     public static final String TAG = PerDiemSearch.class.getSimpleName();
-    double latitude, longitude;
+    double latitude, longitude, totalPerDiem;
     LatLng latLng;
     EditText landingDate, departingDate;
-    String dayIn = "", dayOut = "", cityName = "";
+    String dayIn = "", dayOut = "", cityName = "", countryName = "";
     DatabaseHelper db = new DatabaseHelper(this);
     PlaceAutocompleteFragment autocompleteFragment;
     int days;
@@ -47,13 +53,13 @@ public class AddNewTrip extends AppCompatActivity {
     private static final int EDIT_PROFILE = Menu.FIRST + 1;
     private static final int ABOUT = Menu.FIRST + 2;
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_trip);
 
         landingDate = (EditText) findViewById(R.id.dateLandedText);
         departingDate = (EditText) findViewById(R.id.dateDepartedText);
+
 
         landingDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {
              @Override
@@ -100,8 +106,6 @@ public class AddNewTrip extends AppCompatActivity {
                 cityName = place.getName().toString();
                 latitude = latLng.latitude;
                 longitude = latLng.longitude;
-                //get value in numDaysText, set trip info in Database(location, number of days)
-
             }
 
             @Override
@@ -110,6 +114,7 @@ public class AddNewTrip extends AppCompatActivity {
                 Log.i(TAG, "An error occurred: " + status);
             }
         });
+
     }
 
     // Save Listener
@@ -119,16 +124,23 @@ public class AddNewTrip extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         dayIn = landingDate.getText().toString();
                         dayOut = departingDate.getText().toString();
 
                         if(cityName != "" && dayIn != "" && dayOut != "") {
-//                            int perDiem = db.getPerDiemByCity(cityName); // TODO: Leaved for future usage
-                            int perDiem = db.getMealsByCity(cityName).intValue();
+
+                            String location = countryName + " - " + cityName;
+//                            int perDiem = db.getPerDiemByCity(cityName); // Leaved for future usage
+                            double perDiem = db.getMealsByCity(cityName);
                             days = daysBetween(dayIn, dayOut);
-                            int totalPerDiem = perDiem * (days - 1 ); // removing value of departing day
+                            if (days == 0){
+                                totalPerDiem = perDiem;
+                            } else {
+                                totalPerDiem = perDiem * days;
+                            }
                             boolean isInserted = db.insertTrip(
-                                    cityName, dayIn, dayOut, String.valueOf(totalPerDiem)
+                                    location, dayIn, dayOut, String.valueOf(totalPerDiem)
                             );
 
                             if (isInserted) {
@@ -137,11 +149,15 @@ public class AddNewTrip extends AppCompatActivity {
                                 landingDate.setText("");
                                 departingDate.setText("");
                             }
+                            Intent intent = new Intent(AddNewTrip.this, ViewTripHistory.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
                         }
                     }
                 }
         );
     }
+
 
     public static int daysBetween(String startDate, String endDate) {
         Calendar sDate = Calendar.getInstance();

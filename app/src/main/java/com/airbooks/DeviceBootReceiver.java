@@ -1,3 +1,9 @@
+/**
+ * AirBooks app
+ * DeviceBootReceiver class :
+ * This class receive the system broadcast when device was rebooted and set the alarm to be trigger daily.
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
 import android.app.AlarmManager;
@@ -7,9 +13,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-/**
- * Created by unlimited_power on 7/6/16.
- */
 public class DeviceBootReceiver extends BroadcastReceiver {
 
     @Override

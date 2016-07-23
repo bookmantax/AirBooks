@@ -5,6 +5,17 @@ package com.airbooks;
  */
 public class TODO {
 
+    /**
+     * deleted files:
+     * activity_current_trip
+     * CurrentTrip.java
+     */
+
+    /**
+     * TODO: REF
+     * TODO: https://blogmobile.itude.com/2012/02/20/automatically-starting-an-android-application-on-boot/
+     * TODO: Fix RTC_WAKEUP not working http://stackoverflow.com/questions/4660823/android-alarm-not-working
+     */
 
     /**
      * TODO: Create method to save departure date and calculate PerDiem based on # of days.

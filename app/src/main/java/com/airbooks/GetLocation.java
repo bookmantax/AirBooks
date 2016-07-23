@@ -1,9 +1,14 @@
+/**
+ * AirBooks app
+ * GetLocation class :
+ * This class obtain the location by best provider, search perDiem values from database based in country, state and city.
+ * Invoked from AlarmReceiver.java by the whereAmI() method.
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
-import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.location.Address;
@@ -13,9 +18,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.provider.Settings;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -144,7 +147,7 @@ public class GetLocation extends Service implements android.location.LocationLis
     public String[] whereAmI(Context context) {
 
         String provider = null;
-        if (Passvalues.isLocationAvailable) {
+        if (PassValues.isLocationAvailable) {
             String currentLocation = null;
             if (this.context == null)
                 this.context = context;
@@ -326,7 +329,6 @@ public class GetLocation extends Service implements android.location.LocationLis
         return 0.0;
     }
 
-    // TODO: Create a if statement for 4 letters code base airport
     public String getBase() {
         base = db.getHomeLocation();
         if (base != null) {

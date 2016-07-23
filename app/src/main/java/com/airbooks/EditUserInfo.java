@@ -1,6 +1,8 @@
-/*
- * First Class Tax app
- * Main activity class, used as the main menu of the application.
+/**
+ * AirBooks app
+ * EditUserInfo class :
+ * This class allow the user to complete and / or update the profile information
+ * Created by Rodrigo Escobar in July 2016
  */
 package com.airbooks;
 
@@ -15,7 +17,6 @@ import android.widget.Toast;
 
 public class EditUserInfo extends AppCompatActivity implements View.OnClickListener{
 
-
     // Variables
     private static Button button_sbm;
     DatabaseHelper db = new DatabaseHelper(this);
@@ -26,7 +27,6 @@ public class EditUserInfo extends AppCompatActivity implements View.OnClickListe
     int pos;
     private final String USER_TABLE_NAME = "user_info_table";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +35,6 @@ public class EditUserInfo extends AppCompatActivity implements View.OnClickListe
         // On Click Listener for buttons interaction
         OnClickButtonListenerSave();
         OnClickButtonListenerCancel();
-
 
         //Initialize EditText Variables
         edit_Name_EditText = (EditText) findViewById(R.id.edit_Name_EditText);
@@ -77,7 +76,6 @@ public class EditUserInfo extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
     @Override
     public void onClick(View v) {
     }
@@ -89,7 +87,6 @@ public class EditUserInfo extends AppCompatActivity implements View.OnClickListe
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
 
                         // Call of the method Validate to check if EditText are empty
                         boolean fieldsOK = validate(new EditText[]{

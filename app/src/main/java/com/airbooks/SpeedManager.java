@@ -1,3 +1,10 @@
+/**
+ * AirBooks app
+ * Speed_CLocation class :
+ * Combine the Speed_IBaseGpsListener.java and SpeedManager.java results with the activity_speed.xml
+ * Not used currently but already developed for future app capabilities.
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
 import java.util.Formatter;
@@ -12,12 +19,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
-
-/**
- *
- * Example from : http://handtostandincordingfromisuruudith.blogspot.com/2015/12/calculate-speed-from-gps-location.html
- *
- */
 
 public class SpeedManager extends Activity implements Speed_IBaseGpsListener {
 
@@ -110,8 +111,5 @@ public class SpeedManager extends Activity implements Speed_IBaseGpsListener {
         // TODO Auto-generated method stub
 
     }
-
-
-
 }
 

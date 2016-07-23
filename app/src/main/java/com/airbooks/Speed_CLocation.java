@@ -1,3 +1,11 @@
+/**
+ * AirBooks app
+ * Speed_CLocation class :
+ * This class implement the logic to get the speed using the GPS Location
+ * works in conjunction with Speed_IBaseGpsListener.java and SpeedManager.java
+ * Not used currently but already developed for future app capabilities.
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
 import android.location.Location;
@@ -16,7 +24,6 @@ public class Speed_CLocation extends Location {
         super(location);
         this.bUseMetricUnits = bUseMetricUnits;
     }
-
 
     public boolean getUseMetricUnits()
     {
@@ -75,8 +82,5 @@ public class Speed_CLocation extends Location {
         }
         return nSpeed;
     }
-
-
-
 }
 

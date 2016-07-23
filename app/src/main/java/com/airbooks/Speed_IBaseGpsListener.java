@@ -1,3 +1,11 @@
+/**
+ * AirBooks app
+ * Speed_IBaseGpsListener class :
+ * This class makes and interface for the speed
+ * works in conjunction with Speed_CLocation.java and SpeedManager.java
+ * Not used currently but already developed for future app capabilities.
+ * Created by Rodrigo Escobar in July 2016
+ */
 package com.airbooks;
 
 import android.location.GpsStatus;
