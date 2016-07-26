@@ -2,109 +2,123 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="4431efe5d0f67fab36a698dde725946b33a6bf4a">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-appindexing-9.0.0_d221d78b9201139d69ca5f420db1cfaf4bd7c44d.jar" />
-    </item>
-    <item
         jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.3.0\jars\classes.jar"
-        jumboMode="false"
+        jumboMode="true"
         revision="23.0.2"
         sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.3.0_4b2e0fac74336f56dfe60f8bf4b64f92f2cd2046.jar" />
-    </item>
-    <item
-        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="59cca9b91688dc2467754d36793b3d23bebd21a9">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-location-9.0.0_c53e0abc497255ea6dc7f20efdbfe7e7887b68e0.jar" />
-    </item>
-    <item
-        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="6f65c144283b31b4b9a70e6e7aa4c4a1c897d4b8">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-9.0.0_92f8d415e4a073bbc85dfb76cd9b0ecc9170dfe7.jar" />
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.3.0_4b2e0fac74336f56dfe60f8bf4b64f92f2cd2046\classes.dex" />
     </item>
     <item
         jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\classes.jar"
-        jumboMode="false"
+        jumboMode="true"
         revision="23.0.2"
         sha1="8a034dd16c0dfd75fe86c52c2cd581592acc684a">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.3.0_17a6f819770b4b140a4dbf24291dd922d22145ac.jar" />
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.3.0_17a6f819770b4b140a4dbf24291dd922d22145ac\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="4431efe5d0f67fab36a698dde725946b33a6bf4a">
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.0.0_d221d78b9201139d69ca5f420db1cfaf4bd7c44d\classes.dex" />
     </item>
     <item
         jar="C:\Users\Cristi\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.3.0\support-annotations-23.3.0.jar"
-        jumboMode="false"
+        jumboMode="true"
         revision="23.0.2"
         sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\support-annotations-23.3.0_f602f92fa4107ba38715bad8601507609b40cdc4.jar" />
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.3.0_f602f92fa4107ba38715bad8601507609b40cdc4\classes.dex" />
     </item>
     <item
         jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.0.0\jars\classes.jar"
-        jumboMode="false"
+        jumboMode="true"
         revision="23.0.2"
         sha1="a819aae4f0c711e50b4fd633922a3c1a176cb51e">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-maps-9.0.0_04aa51214a362b697484d35f7e317628cd35ae02.jar" />
-    </item>
-    <item
-        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.3.0_291b3bb44209b1caafd5ccdd1df3ed1f3748e14c.jar" />
-    </item>
-    <item
-        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.1.1_fcd9e6cbeb94327cf1dce2fd244220625948ac17.jar" />
-    </item>
-    <item
-        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="42df48c7305b08b14fa0e84561091b0c24d70d26">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-common-9.0.0_e0d897fc84a449646c5055f8d63568fae69d5fb1.jar" />
-    </item>
-    <item
-        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="cc178928721f3222b3b06bdfbd9497378ccb9792">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-9.0.0_dd3629b3d895a70c4f85a1ecb7e6fab2bc202e88.jar" />
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.0.0_04aa51214a362b697484d35f7e317628cd35ae02\classes.dex" />
     </item>
     <item
         jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
-        jumboMode="false"
+        jumboMode="true"
         revision="23.0.2"
         sha1="379471b2bd17d9737c050345c08e8c7d16589784">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.1.1_d059e3479d222ee74462368a06dada375a67d4f0.jar" />
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.1.1_d059e3479d222ee74462368a06dada375a67d4f0\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="cc178928721f3222b3b06bdfbd9497378ccb9792">
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.0.0_dd3629b3d895a70c4f85a1ecb7e6fab2bc202e88\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="874f07dddcffc81737d0d0e09c73366cdd8e0f5b">
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_0de15431af6de92c15d41cf43dc30ff1949da189\classes.dex" />
     </item>
     <item
         jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\libs\internal_impl-23.3.0.jar"
-        jumboMode="false"
+        jumboMode="true"
         revision="23.0.2"
         sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\internal_impl-23.3.0_02a69cd3566baed4a78415432a72146645abb8fa.jar" />
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.3.0_02a69cd3566baed4a78415432a72146645abb8fa\classes.dex" />
     </item>
     <item
         jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.3.0\jars\classes.jar"
-        jumboMode="false"
+        jumboMode="true"
         revision="23.0.2"
         sha1="23be6993826b8fd88bbc8d14928bb3b8960d3d4e">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.3.0_93abc38a5beca6622a74f540937017349a4edb11.jar" />
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.3.0_93abc38a5beca6622a74f540937017349a4edb11\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.3.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="1b8e03daaa43fb0a4cd57e378167c2fd70454c1e">
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.3.0_291b3bb44209b1caafd5ccdd1df3ed1f3748e14c\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="59cca9b91688dc2467754d36793b3d23bebd21a9">
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-9.0.0_c53e0abc497255ea6dc7f20efdbfe7e7887b68e0\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.1.1_fcd9e6cbeb94327cf1dce2fd244220625948ac17\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="42df48c7305b08b14fa0e84561091b0c24d70d26">
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.0.0_e0d897fc84a449646c5055f8d63568fae69d5fb1\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="bb85deb384985f80104a6f2d0e8b66945c60fff8">
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_1986ee7d1e52f80408352e7e8d15b3f2ad03ecb8\classes.dex" />
     </item>
     <item
         jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.0.0\jars\classes.jar"
-        jumboMode="false"
+        jumboMode="true"
         revision="23.0.2"
         sha1="1941832901fc4e7a93300b53762e9f65d7650b99">
-        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-9.0.0_5ea5a60f47526c6334c17049f50664a49633f52f.jar" />
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.0.0_5ea5a60f47526c6334c17049f50664a49633f52f\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="6f65c144283b31b4b9a70e6e7aa4c4a1c897d4b8">
+        <dex dex="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.0.0_92f8d415e4a073bbc85dfb76cd9b0ecc9170dfe7\classes.dex" />
     </item>
 
 </items>

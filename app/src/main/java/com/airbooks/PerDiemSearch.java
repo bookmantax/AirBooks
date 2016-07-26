@@ -63,11 +63,11 @@ public class PerDiemSearch extends AppCompatActivity implements View.OnClickList
                 Log.i(TAG, "Place: " + place.getName());//get place details here
 //                int perDiem = db.getPerDiemByCity(place.getName().toString()); // Leaved for future usage
                 int perDiem = db.getMealsByCity(place.getName().toString()).intValue();
-                if(perDiem > 0) {
+                if(perDiem != 0) {
                     perDiemAmount.setText("$" + String.valueOf(perDiem));
                 }
                 else{
-                    perDiemAmount.setText("Unknown");
+                    perDiemAmount.setText("$" + "65.0");
                 }
             }
 

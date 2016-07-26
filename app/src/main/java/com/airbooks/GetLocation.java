@@ -179,7 +179,6 @@ public class GetLocation extends Service implements android.location.LocationLis
                         perDiem = setPerDiem();
                     } else {
                         String nearestCity = nearestAirport(country);
-//                        Toast.makeText(this.context, country + " " + nearestCity, Toast.LENGTH_SHORT).show();
                         city = nearestCity;
                         perDiem = db.getLodgingByCity(nearestCity);
 
@@ -301,6 +300,8 @@ public class GetLocation extends Service implements android.location.LocationLis
         } else if (finalMeals == 0.0) {
             Double countryMeals = getCountryMeals();
             finalMeals = countryMeals;
+        } else if (finalMeals == 0.0) {
+            finalMeals = 65.0;
         }
         return finalMeals;
     }

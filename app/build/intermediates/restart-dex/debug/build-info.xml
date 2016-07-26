@@ -4,35 +4,30 @@
     api-level="23"
     density="420dpi"
     format="7"
-    timestamp="89930280186526"
+    timestamp="342692668047596"
     token="-466573900188238560" >
 
     <task
         name="javac"
-        duration="1071" />
+        duration="1602" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="28" />
+        duration="1470" />
     <task
         name="verifier"
-        duration="2" />
+        duration="429" />
 
     <artifact
-        location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
-        type="DEX" />
+        location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
 
-    <build timestamp="89653685085960" >
+    <build timestamp="342692668047596" >
         <artifact
             location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
-    </build>
-    <build timestamp="89930280186526" >
-        <artifact
-            location="C:\Users\Cristi\Documents\GitHub\AirBooks\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
-            type="DEX" />
     </build>
 
 </instant-run>
