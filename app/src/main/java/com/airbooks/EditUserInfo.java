@@ -9,14 +9,22 @@ package com.airbooks;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class EditUserInfo extends AppCompatActivity implements View.OnClickListener{
-
+public class EditUserInfo extends AppCompatActivity
+        implements View.OnClickListener, GestureDetector.OnGestureListener{
+    //GestureVariables
+    private GestureDetectorCompat mDetector;
+    private static final int SWIPE_MIN_DISTANCE = 120;
+    private static final int SWIPE_MAX_OFF_PATH = 250;
+    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
     // Variables
     private static Button button_sbm;
     DatabaseHelper db = new DatabaseHelper(this);
@@ -31,7 +39,7 @@ public class EditUserInfo extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_user_info);
-
+        mDetector = new GestureDetectorCompat(this, this);
         // On Click Listener for buttons interaction
         OnClickButtonListenerSave();
         OnClickButtonListenerCancel();
@@ -155,6 +163,61 @@ public class EditUserInfo extends AppCompatActivity implements View.OnClickListe
                     }
                 }
         );
+    }
+
+    /**
+     * Swipe detection region
+     */
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev){
+        boolean handled = super.dispatchTouchEvent(ev);
+        handled = mDetector.onTouchEvent(ev);
+        return handled;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent motionEvent) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent motionEvent) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        try{
+            if(Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH){
+                return false;
+            }
+            if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY){
+                Intent activity = new Intent(this, MyLocationManager.class);
+                activity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(activity);
+                finish();
+            } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY){
+                startActivity(new Intent(this, TaxDeductionsToDate.class));
+            }
+        } catch (Exception e){
+
+        }
+        return false;
     }
 }
 
