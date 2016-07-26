@@ -59,6 +59,12 @@ public class MyLocationManager extends Activity
             longitude = String.valueOf(gps.getLongitude());
 
             GetCountryStateCity(gps.getLatitude(), gps.getLongitude());
+<<<<<<< HEAD
+=======
+
+//          perDiem = setPerDiem(); // Leaved for future usage
+            perDiem = finalMeals.intValue();
+>>>>>>> origin/master
             finalMeals = setMeals();
             finalLodging = setLodging();
 //          perDiem = setPerDiem(); // Leaved for future usage
@@ -89,12 +95,21 @@ public class MyLocationManager extends Activity
             addresses = geoCoder.getFromLocation(lat, lon, 1);
         } catch (IOException e) {
             e.printStackTrace();
+<<<<<<< HEAD
         }
         if(addresses.size() > 0) {
             country = addresses.get(0).getCountryName();
             state = addresses.get(0).getAdminArea();
             city = addresses.get(0).getLocality();
         }
+=======
+        }
+        if(addresses.size() > 0) {
+            country = addresses.get(0).getCountryName();
+            state = addresses.get(0).getAdminArea();
+            city = addresses.get(0).getLocality();
+        }
+>>>>>>> origin/master
     }
 
     ///// Setters /////
